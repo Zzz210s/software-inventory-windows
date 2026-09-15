@@ -1,4 +1,4 @@
-# 软件清单
+# 软件清单(Windows)
 
 [English](README.md) | 简体中文
 
@@ -7,6 +7,8 @@
 ## 目录
 
 - [开发工具](#开发工具)
+- [命令行工具](#命令行工具)
+- [C++ 运行时与构建依赖](#c-运行时与构建依赖)
 - [终端与网络](#终端与网络)
 - [系统与效率](#系统与效率)
 - [文件、压缩与文档](#文件压缩与文档)
@@ -16,6 +18,7 @@
 - [云盘与同步](#云盘与同步)
 - [科学与地理信息](#科学与地理信息)
 - [个人数据](#个人数据)
+- [用 Scoop 安装](#用-scoop-安装)
 - [范围与整理方法](#范围与整理方法)
 - [许可](#许可)
 
@@ -25,10 +28,44 @@
 |---|---|---|
 | Android Studio | 基于 IntelliJ IDEA 的官方安卓应用开发 IDE。 | [developer.android.com](https://developer.android.com/studio) |
 | CC Switch | 切换 Claude Code、Codex 等 AI CLI 供应商配置的跨平台桌面工具。 | [github.com/farion1231](https://github.com/farion1231/cc-switch) |
+| Docker Desktop | 在 Windows 上构建与运行 Linux 容器的容器平台。 | [docker.com](https://www.docker.com/) |
+| Eclipse Temurin JDK 21 | Adoptium 项目维护的免费 OpenJDK 21(LTS)发行版。 | [adoptium.net](https://adoptium.net/) |
+| Git | 分布式版本控制系统。 | [git-scm.com](https://git-scm.com/) |
 | IntelliJ IDEA | JetBrains 出品的 JVM 语言 IDE,社区版免费。 | [jetbrains.com/idea](https://www.jetbrains.com/idea/) |
 | Microsoft VS Code | 可扩展的代码编辑器,内置 Git、调试器与扩展市场。 | [code.visualstudio.com](https://code.visualstudio.com/) |
-| 微信web开发者工具 | 开发微信小程序与公众号的官方 IDE。 | [developers.weixin.qq.com](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) |
+| Node.js | 用于工具链与服务端开发的 JavaScript 运行时。 | [nodejs.org](https://nodejs.org/) |
+| OpenCode Desktop | OpenCode 终端 AI 编程助手的桌面客户端。 | [opencode.ai](https://opencode.ai/) |
+| Oracle JDK 26 | Oracle 官方的 Java 26 OpenJDK 发行版。 | [oracle.com/java](https://www.oracle.com/java/technologies/downloads/) |
+| pnpm | 快速且节省磁盘空间的 Node.js 包管理器。 | [pnpm.io](https://pnpm.io/) |
+| Python | 通用编程语言与解释器。 | [python.org](https://www.python.org/) |
+| Rust(rustup) | Rust 语言工具链安装器与版本管理器。 | [rust-lang.org](https://www.rust-lang.org/) |
+| Scoop | 命令行方式管理便携式 Windows 程序的安装器。 | [scoop.sh](https://scoop.sh/) |
 | WebStorm | JetBrains 出品的 JavaScript / TypeScript IDE。 | [jetbrains.com/webstorm](https://www.jetbrains.com/webstorm/) |
+| 微信web开发者工具 | 开发微信小程序与公众号的官方 IDE。 | [developers.weixin.qq.com](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) |
+| Zed | 用 Rust 编写的高性能代码编辑器。 | [zed.dev](https://zed.dev/) |
+
+## 命令行工具
+
+| 软件 | 介绍 | 官网 / 官方仓库 |
+|---|---|---|
+| bat | 带语法高亮与 Git 集成的 cat 替代品。 | [github.com/sharkdp](https://github.com/sharkdp/bat) |
+| cmder | 内置 ConEmu 与 Clink 的便携控制台模拟器。 | [cmder.net](https://cmder.net/) |
+| Dark(WiX) | WiX 工具集中的 Windows 安装包反编译器。 | [wixtoolset.org](https://wixtoolset.org/) |
+| fd | 快速且更易用的 find 替代品。 | [github.com/sharkdp](https://github.com/sharkdp/fd) |
+| GitHub CLI | GitHub 官方命令行客户端。 | [cli.github.com](https://cli.github.com/) |
+| Helix | 内置语言服务器支持的模态文本编辑器。 | [helix-editor.com](https://helix-editor.com/) |
+| jq | 命令行 JSON 处理工具。 | [jqlang.github.io](https://jqlang.github.io/jq/) |
+| Make | GNU 构建自动化工具。 | [gnu.org/software/make](https://www.gnu.org/software/make/) |
+| ripgrep | 遵循 gitignore 规则的递归搜索工具。 | [github.com/BurntSushi](https://github.com/BurntSushi/ripgrep) |
+| wget | 通过 HTTP、HTTPS、FTP 下载文件的命令行工具。 | [gnu.org/software/wget](https://www.gnu.org/software/wget/) |
+
+## C++ 运行时与构建依赖
+
+| 软件 | 介绍 | 官网 / 官方仓库 |
+|---|---|---|
+| Microsoft Visual C++ Redistributable | MSVC 编译程序所需的运行库,涵盖 2005 至 2022 各版本。 | [learn.microsoft.com](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) |
+| Microsoft Visual Studio Build Tools 2026 | 用于构建 C++ 项目的 MSVC 编译器、链接器与 Windows SDK 工具链。 | [visualstudio.microsoft.com](https://visualstudio.microsoft.com/downloads/) |
+| MinGW-w64(GCC) | 用于构建原生 Windows C/C++ 程序的 GCC 工具链。 | [mingw-w64.org](https://www.mingw-w64.org/) |
 
 ## 终端与网络
 
@@ -55,9 +92,11 @@
 
 | 软件 | 介绍 | 官网 / 官方仓库 |
 |---|---|---|
+| 7-Zip | 高压缩比、界面简洁的文件压缩软件。 | [7-zip.org](https://www.7-zip.org/) |
 | AnyTXT Searcher | 本地文档全文搜索引擎。 | [anytxt.net](https://anytxt.net/) |
 | Bandizip | 支持 ZIP、7Z、RAR 等格式的快速压缩软件。 | [bandisoft.com](https://www.bandisoft.com/bandizip/) |
 | PDF24 Creator | 免费的离线 PDF 工具箱,可创建、合并、压缩与编辑。 | [pdf24.org](https://www.pdf24.org/en/) |
+| Typora | 极简 Markdown 编辑器,实时预览并支持导出。 | [typora.io](https://typora.io/) |
 | WPS Office | 含文字、表格、演示与 PDF 的办公套件。 | [wps.com](https://www.wps.com/) |
 
 ## 自动化
@@ -105,11 +144,34 @@
 |---|---|---|
 | LifeLog | 本地优先的个人生活记录库,支持标签、全文搜索与 Markdown / Excel 导出。 | [github.com/Zzz210s](https://github.com/Zzz210s/LifeLog) |
 
+## 用 Scoop 安装
+
+上表中大部分条目都能用 [Scoop](https://scoop.sh/) 安装。下面命令中的名称就是各自所属 bucket 里的 manifest 名。
+
+```powershell
+# main bucket(随 Scoop 一起安装)
+scoop install 7zip bat cmder dark fd gh git helix jq make nodejs pnpm python ripgrep rustup wget
+
+# extras bucket
+scoop bucket add extras
+scoop install android-studio autohotkey bandizip bleachbit cc-switch dismplusplus ditto geekuninstaller idea nekobox obs-studio opencode-desktop potplayer q-dir qq spacesniffer typora vcredist2022 vscode wechat webstorm wpsoffice zed
+
+# java bucket
+scoop bucket add java
+scoop install temurin21-jdk
+```
+
+以上名称逐条比对过 `main`、`extras`、`java` 三个 bucket 的 manifest。没有 Scoop manifest 的程序(如 Xshell、PixPin、QGIS、DaVinci Resolve、PDF24 Creator、Oracle JDK 等)需按表格中的官网链接手动安装。
+
 ## 范围与整理方法
 
-本清单来自 2026-09-15 对 `E:\` 盘(本机 Windows 软件盘)顶层的扫描结果,一行对应一个已安装程序。
+本清单于 2026-09-15 从本机三处来源整理:
 
-以下非软件项已排除:`$RECYCLE.BIN`、`Config.Msi`、`System Volume Information`(系统数据),以及 `0-cargo-target`(Rust 构建产物目录)。
+- `E:\` 软件盘顶层目录;
+- Scoop 安装的包(`scoop list`);
+- `C:\Program Files`、`C:\Program Files (x86)`、`%LOCALAPPDATA%\Programs` 下的系统级与用户级开发工具。
+
+Windows 系统目录、构建产物目录与纯依赖包已排除:`$RECYCLE.BIN`、`Config.Msi`、`System Volume Information`、`0-cargo-target`,以及 `cacert` 证书包。
 
 所有链接在整理时都做过可达性检查;没有公开主页的条目改为链接其官方仓库。
 
