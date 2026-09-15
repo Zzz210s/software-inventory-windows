@@ -2,7 +2,7 @@
 
 [English](README.md) | 简体中文
 
-本机(Windows)已安装软件的分类清单,每条含一句话简介与官网或官方仓库链接。
+本机(Windows)已安装软件的分类清单,每条含简要介绍与官网或官方仓库链接。
 
 ## 目录
 
@@ -21,7 +21,7 @@
 
 ## 开发工具
 
-| 软件 | 一句话简介 | 官网 / 官方仓库 |
+| 软件 | 介绍 | 官网 / 官方仓库 |
 |---|---|---|
 | Android Studio | 基于 IntelliJ IDEA 的官方安卓应用开发 IDE。 | [developer.android.com](https://developer.android.com/studio) |
 | CC Switch | 切换 Claude Code、Codex 等 AI CLI 供应商配置的跨平台桌面工具。 | [github.com/farion1231](https://github.com/farion1231/cc-switch) |
@@ -32,7 +32,7 @@
 
 ## 终端与网络
 
-| 软件 | 一句话简介 | 官网 / 官方仓库 |
+| 软件 | 介绍 | 官网 / 官方仓库 |
 |---|---|---|
 | NekoBox(NekoRay) | 基于 sing-box 的 Qt 代理客户端,上游仓库已归档停止维护。 | [github.com/MatsuriDayo](https://github.com/MatsuriDayo/nekoray) |
 | Watt Toolkit(Steam++) | 面向 Steam、GitHub 等服务的网络加速与脚本工具箱。 | [steampp.net](https://steampp.net/) |
@@ -40,7 +40,7 @@
 
 ## 系统与效率
 
-| 软件 | 一句话简介 | 官网 / 官方仓库 |
+| 软件 | 介绍 | 官网 / 官方仓库 |
 |---|---|---|
 | BleachBit | 跨平台磁盘与隐私清理工具,可清除缓存、日志与使用记录。 | [bleachbit.org](https://www.bleachbit.org/) |
 | ContextMenuManager | 管理 Windows 右键菜单项的便携工具。 | [github.com/BluePointLilac](https://github.com/BluePointLilac/ContextMenuManager) |
@@ -53,7 +53,7 @@
 
 ## 文件、压缩与文档
 
-| 软件 | 一句话简介 | 官网 / 官方仓库 |
+| 软件 | 介绍 | 官网 / 官方仓库 |
 |---|---|---|
 | AnyTXT Searcher | 本地文档全文搜索引擎。 | [anytxt.net](https://anytxt.net/) |
 | Bandizip | 支持 ZIP、7Z、RAR 等格式的快速压缩软件。 | [bandisoft.com](https://www.bandisoft.com/bandizip/) |
@@ -62,7 +62,7 @@
 
 ## 自动化
 
-| 软件 | 一句话简介 | 官网 / 官方仓库 |
+| 软件 | 介绍 | 官网 / 官方仓库 |
 |---|---|---|
 | AutoHotkey | Windows 自动化脚本语言,用于编写热键与自动操作。 | [autohotkey.com](https://www.autohotkey.com/) |
 | Autovisor | 基于 Playwright 的网课自动播放脚本。 | [github.com/CXRunfree](https://github.com/CXRunfree/Autovisor) |
@@ -70,7 +70,7 @@
 
 ## 媒体、图像与音乐
 
-| 软件 | 一句话简介 | 官网 / 官方仓库 |
+| 软件 | 介绍 | 官网 / 官方仓库 |
 |---|---|---|
 | DaVinci Resolve | 集剪辑、调色、特效与音频后期于一体的专业视频软件。 | [blackmagicdesign.com](https://www.blackmagicdesign.com/products/davinciresolve) |
 | NetEase Cloud Music(网易云音乐) | 带个性化推荐与社交功能的音乐客户端。 | [music.163.com](https://music.163.com/) |
@@ -80,7 +80,7 @@
 
 ## 沟通与社交
 
-| 软件 | 一句话简介 | 官网 / 官方仓库 |
+| 软件 | 介绍 | 官网 / 官方仓库 |
 |---|---|---|
 | QQ | 腾讯即时通讯客户端,支持文件传输与群聊。 | [im.qq.com](https://im.qq.com/) |
 | 微信(WeChat) | 腾讯的即时通讯客户端,支持支付与小程序。 | [weixin.qq.com](https://weixin.qq.com/) |
@@ -88,20 +88,20 @@
 
 ## 云盘与同步
 
-| 软件 | 一句话简介 | 官网 / 官方仓库 |
+| 软件 | 介绍 | 官网 / 官方仓库 |
 |---|---|---|
 | 百度网盘(Baidu Netdisk) | 百度云存储客户端。 | [pan.baidu.com](https://pan.baidu.com/) |
 | 夸克网盘(Quark Cloud Drive) | 夸克云存储桌面客户端。 | [pan.quark.cn](https://pan.quark.cn/) |
 
 ## 科学与地理信息
 
-| 软件 | 一句话简介 | 官网 / 官方仓库 |
+| 软件 | 介绍 | 官网 / 官方仓库 |
 |---|---|---|
 | QGIS | 开源地理信息系统,用于查看与分析空间数据。 | [qgis.org](https://qgis.org/) |
 
 ## 个人数据
 
-| 软件 | 一句话简介 | 官网 / 官方仓库 |
+| 软件 | 介绍 | 官网 / 官方仓库 |
 |---|---|---|
 | LifeLog | 本地优先的个人生活记录库,支持标签、全文搜索与 Markdown / Excel 导出。 | [github.com/Zzz210s](https://github.com/Zzz210s/LifeLog) |
 
