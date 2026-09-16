@@ -4,19 +4,11 @@
 
 本机(Windows)已安装软件的分类清单,每条含简要介绍与官网或官方仓库链接。
 
-## Windows 安装官方教程
-
-微软官方的 Windows 下载与安装页面:
-
-| 教程 | 介绍 | 链接 |
-|---|---|---|
-| 下载 Windows 11 | 官方页面,含 Windows 11 安装助手、媒体创建工具与 ISO 下载。 | [microsoft.com](https://www.microsoft.com/zh-cn/software-download/windows11) |
-| 安装 Windows 11 的方法 | 微软支持文档,涵盖升级安装、全新安装与安装介质等方案。 | [support.microsoft.com](https://support.microsoft.com/zh-cn/windows/deployment/install-upgrade/ways-to-install-windows-11) |
-| 创建 Windows 安装介质 | 微软支持文档,讲解如何制作可启动 U 盘或 ISO 文件。 | [support.microsoft.com](https://support.microsoft.com/zh-cn/windows/deployment/install-upgrade/create-installation-media-for-windows) |
-
 ## 目录
 
-- [Windows 安装官方教程](#windows-安装官方教程)
+- [Windows 下载与安装](#windows-下载与安装)
+- [Scoop 安装](#scoop-安装)
+- [pnpm 安装](#pnpm-安装)
 - [开发工具](#开发工具)
   - [IDE 与编辑器](#ide-与编辑器)
   - [运行时与包管理](#运行时与包管理)
@@ -36,8 +28,40 @@
 - [科学与个人数据](#科学与个人数据)
 - [AI 工具](#ai-工具)
 - [LLM 客户端与操作端](#llm-客户端与操作端)
-- [范围与整理方法](#范围与整理方法)
 - [许可](#许可)
+
+## Windows 下载与安装
+
+微软官方的 Windows 下载与安装页面:
+
+| 教程 | 介绍 | 链接 |
+|---|---|---|
+| 下载 Windows 11 | 官方页面,含 Windows 11 安装助手、媒体创建工具与 ISO 下载。 | [microsoft.com](https://www.microsoft.com/zh-cn/software-download/windows11) |
+| 安装 Windows 11 的方法 | 微软支持文档,涵盖升级安装、全新安装与安装介质等方案。 | [support.microsoft.com](https://support.microsoft.com/zh-cn/windows/deployment/install-upgrade/ways-to-install-windows-11) |
+| 创建 Windows 安装介质 | 微软支持文档,讲解如何制作可启动 U 盘或 ISO 文件。 | [support.microsoft.com](https://support.microsoft.com/zh-cn/windows/deployment/install-upgrade/create-installation-media-for-windows) |
+
+## Scoop 安装
+
+Scoop 是 Windows 上的命令行安装器:免管理员权限,程序统一装在 `~\scoop`,并通过 shim 暴露可执行文件。
+
+- 官网: [scoop.sh](https://scoop.sh/)
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+```
+
+下表“安装命令”列每个条目只列一个包管理器,按 Scoop、pnpm、winget 的优先级选取;非 main bucket 的条目需先执行 `scoop bucket add extras`、`scoop bucket add java`。
+
+## pnpm 安装
+
+pnpm 是快速且节省磁盘空间的 Node.js 包管理器,本清单用它安装全局命令行工具。
+
+- 官网: [pnpm.io](https://pnpm.io/)
+
+```powershell
+Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expression
+```
 
 ## 开发工具
 
@@ -50,13 +74,11 @@
 | Microsoft VS Code | 可扩展的代码编辑器,内置 Git、调试器与扩展市场。 | [code.visualstudio.com](https://code.visualstudio.com/) | `scoop install vscode`  (extras) |
 | 微信web开发者工具 | 开发微信小程序与公众号的官方 IDE。 | [developers.weixin.qq.com](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) | `winget install Tencent.WeixinDevTools` |
 | WebStorm | JetBrains 出品的 JavaScript / TypeScript IDE。 | [jetbrains.com/webstorm](https://www.jetbrains.com/webstorm/) | `scoop install webstorm`  (extras) |
-| Zed | 用 Rust 编写的高性能代码编辑器。 | [zed.dev](https://zed.dev/) | `scoop install zed`  (extras) |
 
 ### 运行时与包管理
 
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
-| Eclipse Temurin JDK 21 | Adoptium 项目维护的免费 OpenJDK 21(LTS)发行版。 | [adoptium.net](https://adoptium.net/) | `scoop install temurin21-jdk`  (java) |
 | Node.js | 用于工具链与服务端开发的 JavaScript 运行时。 | [nodejs.org](https://nodejs.org/) | `scoop install nodejs` |
 | Oracle JDK 26 | Oracle 官方的 Java 26 OpenJDK 发行版。 | [oracle.com/java](https://www.oracle.com/java/technologies/downloads/) | `scoop install oraclejdk`  (java) |
 | pnpm | 快速且节省磁盘空间的 Node.js 包管理器。 | [pnpm.io](https://pnpm.io/) | `scoop install pnpm` |
@@ -85,7 +107,6 @@
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
 | Docker Desktop | 在 Windows 上构建与运行 Linux 容器的容器平台。 | [docker.com](https://www.docker.com/) | `winget install Docker.DockerDesktop` |
-| Microsoft Visual C++ Redistributable | MSVC 编译程序所需的运行库。 | [learn.microsoft.com](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) | `scoop install vcredist2022` |
 | Microsoft Visual Studio Build Tools 2026 | 用于构建 C++ 项目的 MSVC 编译器、链接器与 Windows SDK 工具链。 | [visualstudio.microsoft.com](https://visualstudio.microsoft.com/downloads/) | 手动安装 |
 | MinGW-Builds(GCC) | 基于 MinGW-w64 源码构建的 Windows 平台 GCC C/C++ 工具链。 | [github.com/niXman](https://github.com/niXman/mingw-builds-binaries) | 手动安装 |
 
@@ -130,7 +151,6 @@
 |---|---|---|---|
 | AnyTXT Searcher | 本地文档全文搜索引擎。 | [anytxt.net](https://anytxt.net/) | `winget install AnyTXT.AnyTXTSearcher` |
 | PDF24 Creator | 免费的离线 PDF 工具箱,可创建、合并、压缩与编辑。 | [pdf24.org](https://www.pdf24.org/en/) | `winget install geeksoftwareGmbH.PDF24Creator` |
-| Typora | 极简 Markdown 编辑器,实时预览并支持导出。 | [typora.io](https://typora.io/) | `scoop install typora`  (extras) |
 | WPS Office | 含文字、表格、演示与 PDF 的办公套件。 | [wps.com](https://www.wps.com/) | `scoop install wpsoffice`  (extras) |
 
 ## 网络与云
@@ -156,7 +176,6 @@
 | DaVinci Resolve | 集剪辑、调色、特效与音频后期于一体的专业视频软件。 | [blackmagicdesign.com](https://www.blackmagicdesign.com/products/davinciresolve) | 手动安装 |
 | NetEase Cloud Music(网易云音乐) | 带个性化推荐与社交功能的音乐客户端。 | [music.163.com](https://music.163.com/) | `winget install NetEase.CloudMusic` |
 | OBS Studio | 开源直播与录屏软件。 | [obsproject.com](https://obsproject.com/) | `scoop install obs-studio`  (extras) |
-| pineapple-pictures | 基于 Qt 的轻量图片查看器,含基础编辑。 | [github.com/BLumia](https://github.com/BLumia/pineapple-pictures) | 手动安装 |
 | PotPlayer | Daum 出品、功能丰富的全能播放器。 | [potplayer.daum.net](https://potplayer.daum.net/) | `scoop install potplayer`  (extras) |
 
 ## 沟通与会议
@@ -181,9 +200,6 @@
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
 | CC Switch | 切换 Claude Code、Codex 等 AI CLI 供应商配置的跨平台桌面工具。 | [github.com/farion1231](https://github.com/farion1231/cc-switch) | `scoop install cc-switch`  (extras) |
-| CCTO | Claude Code Token 优化器:通过本地语义索引与 MCP 工具降低 token 消耗。 | [github.com/alidhibi](https://github.com/alidhibi/ccto) | `pnpm add -g @alidhibi/ccto` |
-| Chrome DevTools MCP | 让 AI 代理检查与驱动 Chrome DevTools 的 MCP 服务器。 | [github.com/ChromeDevTools](https://github.com/ChromeDevTools/chrome-devtools-mcp) | `pnpm add -g chrome-devtools-mcp` |
-| OpenCommit | 用 LLM 根据暂存区改动生成 git 提交信息。 | [github.com/di-sukharev](https://github.com/di-sukharev/opencommit) | `pnpm add -g opencommit` |
 
 ## LLM 客户端与操作端
 
@@ -194,22 +210,7 @@
 | Claude Code | Anthropic 官方面向 Claude 模型的终端编程代理。 | [github.com/anthropics](https://github.com/anthropics/claude-code) | `scoop install claude-code` |
 | OpenCode Desktop | OpenCode AI 编程助手的桌面客户端。 | [opencode.ai](https://opencode.ai/) | `scoop install opencode-desktop`  (extras) |
 | pi | 带 read、bash、edit、write 工具与会话管理的编程代理 CLI。 | [github.com/earendil-works](https://github.com/earendil-works/pi) | `pnpm add -g @earendil-works/pi-coding-agent` |
-
-## 范围与整理方法
-
-本清单于 2026-09-15 从本机三处来源整理:
-
-- `E:\` 软件盘顶层目录;
-- Scoop 安装的包(`scoop list`);
-- `C:\Program Files`、`C:\Program Files (x86)`、`%LOCALAPPDATA%\Programs` 下的系统级与用户级开发工具。
-
-条目按“程序做什么”分类,沿用社区软件清单通行的分类法。第 4 列“安装命令”每个条目只列一个包管理器,按 Scoop、pnpm、winget 的优先级选取;非 main bucket 的 Scoop 命令会在后面标注 bucket,先执行 `scoop bucket add extras` 与 `scoop bucket add java` 各一次。
-
-每个 Scoop manifest 名都已比对本地 bucket,每个 winget 包 ID 在写入前都用 winget 源核验过;没有公开主页的条目改为链接其官方仓库。
-
-Windows 系统目录、构建产物目录与纯依赖包已排除:`$RECYCLE.BIN`、`Config.Msi`、`System Volume Information`、`0-cargo-target`,以及 `cacert` 证书包。
-
-所有链接在整理时都做过可达性检查。
+| Zed | 用 Rust 编写的高性能代码编辑器。 | [zed.dev](https://zed.dev/) | `scoop install zed`  (extras) |
 
 ## 许可
 

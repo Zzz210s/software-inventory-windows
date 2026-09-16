@@ -4,19 +4,11 @@ English | [简体中文](README.zh-CN.md)
 
 A categorized inventory of the software installed on my Windows machine, with a short introduction and official links.
 
-## Windows Installation Guides
-
-Official Microsoft pages for downloading and installing Windows:
-
-| Guide | Introduction | Link |
-|---|---|---|
-| Download Windows 11 | Official page with the Windows 11 Installation Assistant, the media creation tool and ISO downloads. | [microsoft.com](https://www.microsoft.com/software-download/windows11) |
-| Ways to install Windows 11 | Microsoft Support article covering upgrade, clean install and installation media options. | [support.microsoft.com](https://support.microsoft.com/en-us/windows/deployment/install-upgrade/ways-to-install-windows-11) |
-| Create installation media for Windows | Microsoft Support guide for a bootable USB drive or ISO file. | [support.microsoft.com](https://support.microsoft.com/en-us/windows/deployment/install-upgrade/create-installation-media-for-windows) |
-
 ## Table of Contents
 
-- [Windows Installation Guides](#windows-installation-guides)
+- [Download and Install Windows](#download-and-install-windows)
+- [Install Scoop](#install-scoop)
+- [Install pnpm](#install-pnpm)
 - [Development Tools](#development-tools)
   - [IDE and Editors](#ide-and-editors)
   - [Runtimes and Package Managers](#runtimes-and-package-managers)
@@ -36,8 +28,40 @@ Official Microsoft pages for downloading and installing Windows:
 - [Science and Personal Data](#science-and-personal-data)
 - [AI Tools](#ai-tools)
 - [LLM Clients and Front-ends](#llm-clients-and-front-ends)
-- [Scope and Method](#scope-and-method)
 - [License](#license)
+
+## Download and Install Windows
+
+Official Microsoft pages for downloading and installing Windows:
+
+| Guide | Introduction | Link |
+|---|---|---|
+| Download Windows 11 | Official page with the Windows 11 Installation Assistant, the media creation tool and ISO downloads. | [microsoft.com](https://www.microsoft.com/software-download/windows11) |
+| Ways to install Windows 11 | Microsoft Support article covering upgrade, clean install and installation media options. | [support.microsoft.com](https://support.microsoft.com/en-us/windows/deployment/install-upgrade/ways-to-install-windows-11) |
+| Create installation media for Windows | Microsoft Support guide for a bootable USB drive or ISO file. | [support.microsoft.com](https://support.microsoft.com/en-us/windows/deployment/install-upgrade/create-installation-media-for-windows) |
+
+## Install Scoop
+
+Scoop is a command-line installer for Windows. It keeps programs in `~\scoop` without administrator rights and exposes them through shims.
+
+- Official site: [scoop.sh](https://scoop.sh/)
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+```
+
+The install command column names one package manager per entry, picked in this order: Scoop, pnpm, then winget. Rows outside the `main` bucket need their bucket first: `scoop bucket add extras` and `scoop bucket add java`.
+
+## Install pnpm
+
+pnpm is a fast, disk-efficient package manager for Node.js; this list uses it for global command-line tools.
+
+- Official site: [pnpm.io](https://pnpm.io/)
+
+```powershell
+Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expression
+```
 
 ## Development Tools
 
@@ -50,13 +74,11 @@ Official Microsoft pages for downloading and installing Windows:
 | Microsoft VS Code | Extensible code editor with built-in Git, debugger and extensions. | [code.visualstudio.com](https://code.visualstudio.com/) | `scoop install vscode`  (extras) |
 | WeChat DevTools | Official IDE for developing WeChat Mini Programs and Official Accounts. | [developers.weixin.qq.com](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) | `winget install Tencent.WeixinDevTools` |
 | WebStorm | JetBrains IDE for JavaScript and TypeScript development. | [jetbrains.com/webstorm](https://www.jetbrains.com/webstorm/) | `scoop install webstorm`  (extras) |
-| Zed | High-performance code editor written in Rust. | [zed.dev](https://zed.dev/) | `scoop install zed`  (extras) |
 
 ### Runtimes and Package Managers
 
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
-| Eclipse Temurin JDK 21 | Free OpenJDK build of Java 21 (LTS) from the Adoptium project. | [adoptium.net](https://adoptium.net/) | `scoop install temurin21-jdk`  (java) |
 | Node.js | JavaScript runtime used for tooling and server-side code. | [nodejs.org](https://nodejs.org/) | `scoop install nodejs` |
 | Oracle JDK 26 | Oracle OpenJDK distribution of Java 26. | [oracle.com/java](https://www.oracle.com/java/technologies/downloads/) | `scoop install oraclejdk`  (java) |
 | pnpm | Fast, disk-efficient package manager for Node.js projects. | [pnpm.io](https://pnpm.io/) | `scoop install pnpm` |
@@ -85,7 +107,6 @@ Official Microsoft pages for downloading and installing Windows:
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
 | Docker Desktop | Container platform for building and running Linux containers on Windows. | [docker.com](https://www.docker.com/) | `winget install Docker.DockerDesktop` |
-| Microsoft Visual C++ Redistributable | Runtime libraries required by programs built with MSVC. | [learn.microsoft.com](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) | `scoop install vcredist2022` |
 | Microsoft Visual Studio Build Tools 2026 | MSVC compiler, linker and Windows SDK toolchain for building C++ projects. | [visualstudio.microsoft.com](https://visualstudio.microsoft.com/downloads/) | Manual install |
 | MinGW-Builds (GCC) | GCC C and C++ toolchain for Windows, built from the MinGW-w64 sources. | [github.com/niXman](https://github.com/niXman/mingw-builds-binaries) | Manual install |
 
@@ -130,7 +151,6 @@ Official Microsoft pages for downloading and installing Windows:
 |---|---|---|---|
 | AnyTXT Searcher | Desktop full-text search engine for local documents. | [anytxt.net](https://anytxt.net/) | `winget install AnyTXT.AnyTXTSearcher` |
 | PDF24 Creator | Free offline toolkit to create, merge, compress and edit PDF files. | [pdf24.org](https://www.pdf24.org/en/) | `winget install geeksoftwareGmbH.PDF24Creator` |
-| Typora | Minimal Markdown editor with live preview and export. | [typora.io](https://typora.io/) | `scoop install typora`  (extras) |
 | WPS Office | Office suite with Writer, Spreadsheets, Presentation and PDF tools. | [wps.com](https://www.wps.com/) | `scoop install wpsoffice`  (extras) |
 
 ## Networking and Cloud
@@ -156,7 +176,6 @@ Official Microsoft pages for downloading and installing Windows:
 | DaVinci Resolve | Video editing, colour grading, visual effects and audio post-production suite. | [blackmagicdesign.com](https://www.blackmagicdesign.com/products/davinciresolve) | Manual install |
 | NetEase Cloud Music | Music streaming client with personalised recommendations and social features. | [music.163.com](https://music.163.com/) | `winget install NetEase.CloudMusic` |
 | OBS Studio | Open-source live streaming and screen recording application. | [obsproject.com](https://obsproject.com/) | `scoop install obs-studio`  (extras) |
-| pineapple-pictures | Lightweight Qt image viewer with basic editing. | [github.com/BLumia](https://github.com/BLumia/pineapple-pictures) | Manual install |
 | PotPlayer | Feature-rich multimedia player from Daum. | [potplayer.daum.net](https://potplayer.daum.net/) | `scoop install potplayer`  (extras) |
 
 ## Communication and Meetings
@@ -181,9 +200,6 @@ Tools that support AI coding workflows on this machine.
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
 | CC Switch | Cross-platform manager that switches provider configs for Claude Code, Codex and other AI CLI agents. | [github.com/farion1231](https://github.com/farion1231/cc-switch) | `scoop install cc-switch`  (extras) |
-| CCTO | Claude Code Token Optimizer: cuts token usage with local semantic indexing and MCP tools. | [github.com/alidhibi](https://github.com/alidhibi/ccto) | `pnpm add -g @alidhibi/ccto` |
-| Chrome DevTools MCP | MCP server that lets AI agents inspect and drive Chrome DevTools. | [github.com/ChromeDevTools](https://github.com/ChromeDevTools/chrome-devtools-mcp) | `pnpm add -g chrome-devtools-mcp` |
-| OpenCommit | Generates git commit messages with an LLM from the staged diff. | [github.com/di-sukharev](https://github.com/di-sukharev/opencommit) | `pnpm add -g opencommit` |
 
 ## LLM Clients and Front-ends
 
@@ -194,22 +210,7 @@ Clients and command-line front-ends for large language models.
 | Claude Code | Anthropic's terminal coding agent for Claude models. | [github.com/anthropics](https://github.com/anthropics/claude-code) | `scoop install claude-code` |
 | OpenCode Desktop | Desktop client for the OpenCode AI coding agent. | [opencode.ai](https://opencode.ai/) | `scoop install opencode-desktop`  (extras) |
 | pi | Coding agent CLI with read, bash, edit and write tools plus session management. | [github.com/earendil-works](https://github.com/earendil-works/pi) | `pnpm add -g @earendil-works/pi-coding-agent` |
-
-## Scope and Method
-
-Compiled on 2026-09-15 from three sources on my Windows machine:
-
-- the top level of the `E:\` software drive;
-- packages installed with Scoop (`scoop list`);
-- system-wide and user-local development tools under `C:\Program Files`, `C:\Program Files (x86)` and `%LOCALAPPDATA%\Programs`.
-
-Entries are grouped by what a program does, following the taxonomy that community software lists use. The install command column names exactly one package manager per entry, picked in this order: Scoop, pnpm, then winget. Scoop rows outside the `main` bucket are annotated in brackets; add those buckets once with `scoop bucket add extras` and `scoop bucket add java`.
-
-Every Scoop manifest name was matched against the local buckets, and every winget package identifier was confirmed against the winget source before it was written down. Entries without a public homepage are linked to their official repository instead.
-
-Windows system folders, build output directories and dependency-only packages are left out: `$RECYCLE.BIN`, `Config.Msi`, `System Volume Information`, `0-cargo-target` and the `cacert` certificate bundle.
-
-Every link was opened and checked for reachability while writing this list.
+| Zed | High-performance code editor written in Rust. | [zed.dev](https://zed.dev/) | `scoop install zed`  (extras) |
 
 ## License
 
