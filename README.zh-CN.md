@@ -48,7 +48,7 @@
 | Android Studio | 基于 IntelliJ IDEA 的官方安卓应用开发 IDE。 | [developer.android.com](https://developer.android.com/studio) | `scoop install android-studio`  (extras)<br>`winget install Google.AndroidStudio` |
 | IntelliJ IDEA | JetBrains 出品的 JVM 语言 IDE,manifest 安装免费的社区版。 | [jetbrains.com/idea](https://www.jetbrains.com/idea/) | `scoop install idea`  (extras)<br>`winget install JetBrains.IntelliJIDEA.Ultimate` |
 | Microsoft VS Code | 可扩展的代码编辑器,内置 Git、调试器与扩展市场。 | [code.visualstudio.com](https://code.visualstudio.com/) | `scoop install vscode`  (extras)<br>`winget install Microsoft.VisualStudioCode` |
-| 微信web开发者工具 | 开发微信小程序与公众号的官方 IDE。 | [developers.weixin.qq.com](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) | 手动安装<br>`winget install Tencent.WeixinDevTools` |
+| 微信web开发者工具 | 开发微信小程序与公众号的官方 IDE。 | [developers.weixin.qq.com](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) | `winget install Tencent.WeixinDevTools` |
 | WebStorm | JetBrains 出品的 JavaScript / TypeScript IDE。 | [jetbrains.com/webstorm](https://www.jetbrains.com/webstorm/) | `scoop install webstorm`  (extras)<br>`winget install JetBrains.WebStorm` |
 | Zed | 用 Rust 编写的高性能代码编辑器。 | [zed.dev](https://zed.dev/) | `scoop install zed`  (extras)<br>`winget install ZedIndustries.Zed` |
 
@@ -104,7 +104,7 @@ scoop install oraclejdk temurin21-jdk
 
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
-| Docker Desktop | 在 Windows 上构建与运行 Linux 容器的容器平台。 | [docker.com](https://www.docker.com/) | 手动安装<br>`winget install Docker.DockerDesktop` |
+| Docker Desktop | 在 Windows 上构建与运行 Linux 容器的容器平台。 | [docker.com](https://www.docker.com/) | `winget install Docker.DockerDesktop` |
 | Microsoft Visual C++ Redistributable | MSVC 编译程序所需的运行库。 | [learn.microsoft.com](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) | `scoop install vcredist2022`<br>`winget install "Microsoft.VCRedist.2015+.x64"` |
 | Microsoft Visual Studio Build Tools 2026 | 用于构建 C++ 项目的 MSVC 编译器、链接器与 Windows SDK 工具链。 | [visualstudio.microsoft.com](https://visualstudio.microsoft.com/downloads/) | 手动安装 |
 | MinGW-Builds(GCC) | 基于 MinGW-w64 源码构建的 Windows 平台 GCC C/C++ 工具链。 | [github.com/niXman](https://github.com/niXman/mingw-builds-binaries) | 手动安装 |
@@ -116,7 +116,7 @@ scoop install oraclejdk temurin21-jdk
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
 | BleachBit | 跨平台磁盘与隐私清理工具,可清除缓存、日志与使用记录。 | [bleachbit.org](https://www.bleachbit.org/) | `scoop install bleachbit`  (extras)<br>`winget install BleachBit.BleachBit` |
-| ContextMenuManager | 管理 Windows 右键菜单项的便携工具。 | [github.com/BluePointLilac](https://github.com/BluePointLilac/ContextMenuManager) | 手动安装<br>`winget install BluePointLilac.ContextMenuManager` |
+| ContextMenuManager | 管理 Windows 右键菜单项的便携工具。 | [github.com/BluePointLilac](https://github.com/BluePointLilac/ContextMenuManager) | `winget install BluePointLilac.ContextMenuManager` |
 | Dism++ | 基于 DISM 的便携系统维护与清理工具。 | [github.com/Chuyu-Team](https://github.com/Chuyu-Team/Dism-Multi-language) | `scoop install dismplusplus`  (extras)<br>`winget install "ChuyuTeam.DISM++"` |
 | Geek Uninstaller | 便携卸载工具,可一并清除残留文件与注册表项。 | [geekuninstaller.com](https://geekuninstaller.com/) | `scoop install geekuninstaller`  (extras)<br>`winget install GeekUninstaller.GeekUninstaller` |
 | SpaceSniffer | 以矩形树图展示磁盘空间占用。 | [uderzo.it](http://www.uderzo.it/main_products/space_sniffer/) | `scoop install spacesniffer`  (extras)<br>`winget install UderzoSoftware.SpaceSniffer` |
@@ -134,7 +134,7 @@ scoop install oraclejdk temurin21-jdk
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
 | Ditto | 开源剪贴板历史管理工具,支持搜索历史条目。 | [github.com/sabrogden](https://github.com/sabrogden/Ditto) | `scoop install ditto`  (extras)<br>`winget install Ditto.Ditto` |
-| PixPin | 集截图、贴图、长截图、OCR 与录屏于一体的工具。 | [pixpin.com](https://pixpin.com/) | 手动安装<br>`winget install PixPin.PixPin` |
+| PixPin | 集截图、贴图、长截图、OCR 与录屏于一体的工具。 | [pixpin.com](https://pixpin.com/) | `winget install PixPin.PixPin` |
 
 ### 自动化
 
@@ -148,8 +148,8 @@ scoop install oraclejdk temurin21-jdk
 
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
-| AnyTXT Searcher | 本地文档全文搜索引擎。 | [anytxt.net](https://anytxt.net/) | 手动安装<br>`winget install AnyTXT.AnyTXTSearcher` |
-| PDF24 Creator | 免费的离线 PDF 工具箱,可创建、合并、压缩与编辑。 | [pdf24.org](https://www.pdf24.org/en/) | 手动安装<br>`winget install geeksoftwareGmbH.PDF24Creator` |
+| AnyTXT Searcher | 本地文档全文搜索引擎。 | [anytxt.net](https://anytxt.net/) | `winget install AnyTXT.AnyTXTSearcher` |
+| PDF24 Creator | 免费的离线 PDF 工具箱,可创建、合并、压缩与编辑。 | [pdf24.org](https://www.pdf24.org/en/) | `winget install geeksoftwareGmbH.PDF24Creator` |
 | Typora | 极简 Markdown 编辑器,实时预览并支持导出。 | [typora.io](https://typora.io/) | `scoop install typora`  (extras)<br>`winget install appmakes.Typora` |
 | WPS Office | 含文字、表格、演示与 PDF 的办公套件。 | [wps.com](https://www.wps.com/) | `scoop install wpsoffice`  (extras)<br>`winget install Kingsoft.WPSOffice` |
 
@@ -166,15 +166,15 @@ scoop install oraclejdk temurin21-jdk
 
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
-| 百度网盘(Baidu Netdisk) | 百度云存储客户端。 | [pan.baidu.com](https://pan.baidu.com/) | 手动安装<br>`winget install Baidu.BaiduNetdisk` |
-| 夸克网盘(Quark Cloud Drive) | 夸克云存储桌面客户端。 | [pan.quark.cn](https://pan.quark.cn/) | 手动安装<br>`winget install Alibaba.QuarkCloudDrive` |
+| 百度网盘(Baidu Netdisk) | 百度云存储客户端。 | [pan.baidu.com](https://pan.baidu.com/) | `winget install Baidu.BaiduNetdisk` |
+| 夸克网盘(Quark Cloud Drive) | 夸克云存储桌面客户端。 | [pan.quark.cn](https://pan.quark.cn/) | `winget install Alibaba.QuarkCloudDrive` |
 
 ## 媒体与图像
 
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
 | DaVinci Resolve | 集剪辑、调色、特效与音频后期于一体的专业视频软件。 | [blackmagicdesign.com](https://www.blackmagicdesign.com/products/davinciresolve) | 手动安装 |
-| NetEase Cloud Music(网易云音乐) | 带个性化推荐与社交功能的音乐客户端。 | [music.163.com](https://music.163.com/) | 手动安装<br>`winget install NetEase.CloudMusic` |
+| NetEase Cloud Music(网易云音乐) | 带个性化推荐与社交功能的音乐客户端。 | [music.163.com](https://music.163.com/) | `winget install NetEase.CloudMusic` |
 | OBS Studio | 开源直播与录屏软件。 | [obsproject.com](https://obsproject.com/) | `scoop install obs-studio`  (extras)<br>`winget install OBSProject.OBSStudio` |
 | pineapple-pictures | 基于 Qt 的轻量图片查看器,含基础编辑。 | [github.com/BLumia](https://github.com/BLumia/pineapple-pictures) | 手动安装 |
 | PotPlayer | Daum 出品、功能丰富的全能播放器。 | [potplayer.daum.net](https://potplayer.daum.net/) | `scoop install potplayer`  (extras)<br>`winget install Daum.PotPlayer` |
@@ -185,13 +185,13 @@ scoop install oraclejdk temurin21-jdk
 |---|---|---|---|
 | QQ | 腾讯即时通讯客户端,支持文件传输与群聊。 | [im.qq.com](https://im.qq.com/) | `scoop install qq`  (extras)<br>`winget install Tencent.QQ.NT` |
 | WeChat(微信) | 腾讯的即时通讯客户端,支持支付与小程序。 | [weixin.qq.com](https://weixin.qq.com/) | `scoop install wechat`  (extras)<br>`winget install Tencent.WeChat.Universal` |
-| WeLink | 华为云企业协同办公与视频会议客户端。 | [huaweicloud.com](https://www.huaweicloud.com/product/welink.html) | 手动安装<br>`winget install Huawei.Welink` |
+| WeLink | 华为云企业协同办公与视频会议客户端。 | [huaweicloud.com](https://www.huaweicloud.com/product/welink.html) | `winget install Huawei.Welink` |
 
 ## 科学与个人数据
 
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
-| QGIS | 开源地理信息系统,用于查看与分析空间数据。 | [qgis.org](https://qgis.org/) | 手动安装<br>`winget install OSGeo.QGIS` |
+| QGIS | 开源地理信息系统,用于查看与分析空间数据。 | [qgis.org](https://qgis.org/) | `winget install OSGeo.QGIS` |
 | LifeLog | 本地优先的个人生活记录库,支持标签、全文搜索与 Markdown / Excel 导出。 | [github.com/Zzz210s](https://github.com/Zzz210s/LifeLog) | 手动安装 |
 
 ## AI 工具

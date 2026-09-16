@@ -48,7 +48,7 @@ Official Microsoft pages for downloading and installing Windows:
 | Android Studio | Official IDE for Android app development, built on IntelliJ IDEA. | [developer.android.com](https://developer.android.com/studio) | `scoop install android-studio`  (extras)<br>`winget install Google.AndroidStudio` |
 | IntelliJ IDEA | JetBrains IDE for JVM languages; the manifest installs the free Community edition. | [jetbrains.com/idea](https://www.jetbrains.com/idea/) | `scoop install idea`  (extras)<br>`winget install JetBrains.IntelliJIDEA.Ultimate` |
 | Microsoft VS Code | Extensible code editor with built-in Git, debugger and extensions. | [code.visualstudio.com](https://code.visualstudio.com/) | `scoop install vscode`  (extras)<br>`winget install Microsoft.VisualStudioCode` |
-| WeChat DevTools | Official IDE for developing WeChat Mini Programs and Official Accounts. | [developers.weixin.qq.com](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) | Manual install<br>`winget install Tencent.WeixinDevTools` |
+| WeChat DevTools | Official IDE for developing WeChat Mini Programs and Official Accounts. | [developers.weixin.qq.com](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) | `winget install Tencent.WeixinDevTools` |
 | WebStorm | JetBrains IDE for JavaScript and TypeScript development. | [jetbrains.com/webstorm](https://www.jetbrains.com/webstorm/) | `scoop install webstorm`  (extras)<br>`winget install JetBrains.WebStorm` |
 | Zed | High-performance code editor written in Rust. | [zed.dev](https://zed.dev/) | `scoop install zed`  (extras)<br>`winget install ZedIndustries.Zed` |
 
@@ -104,7 +104,7 @@ scoop install oraclejdk temurin21-jdk
 
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
-| Docker Desktop | Container platform for building and running Linux containers on Windows. | [docker.com](https://www.docker.com/) | Manual install<br>`winget install Docker.DockerDesktop` |
+| Docker Desktop | Container platform for building and running Linux containers on Windows. | [docker.com](https://www.docker.com/) | `winget install Docker.DockerDesktop` |
 | Microsoft Visual C++ Redistributable | Runtime libraries required by programs built with MSVC. | [learn.microsoft.com](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) | `scoop install vcredist2022`<br>`winget install "Microsoft.VCRedist.2015+.x64"` |
 | Microsoft Visual Studio Build Tools 2026 | MSVC compiler, linker and Windows SDK toolchain for building C++ projects. | [visualstudio.microsoft.com](https://visualstudio.microsoft.com/downloads/) | Manual install |
 | MinGW-Builds (GCC) | GCC C and C++ toolchain for Windows, built from the MinGW-w64 sources. | [github.com/niXman](https://github.com/niXman/mingw-builds-binaries) | Manual install |
@@ -116,7 +116,7 @@ scoop install oraclejdk temurin21-jdk
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
 | BleachBit | Cross-platform disk cleaner and privacy tool for caches, logs and history. | [bleachbit.org](https://www.bleachbit.org/) | `scoop install bleachbit`  (extras)<br>`winget install BleachBit.BleachBit` |
-| ContextMenuManager | Portable manager for Windows right-click context menu entries. | [github.com/BluePointLilac](https://github.com/BluePointLilac/ContextMenuManager) | Manual install<br>`winget install BluePointLilac.ContextMenuManager` |
+| ContextMenuManager | Portable manager for Windows right-click context menu entries. | [github.com/BluePointLilac](https://github.com/BluePointLilac/ContextMenuManager) | `winget install BluePointLilac.ContextMenuManager` |
 | Dism++ | Portable Windows servicing and cleanup utility built on DISM. | [github.com/Chuyu-Team](https://github.com/Chuyu-Team/Dism-Multi-language) | `scoop install dismplusplus`  (extras)<br>`winget install "ChuyuTeam.DISM++"` |
 | Geek Uninstaller | Portable uninstaller that also removes leftover files and registry keys. | [geekuninstaller.com](https://geekuninstaller.com/) | `scoop install geekuninstaller`  (extras)<br>`winget install GeekUninstaller.GeekUninstaller` |
 | SpaceSniffer | Treemap view of disk space usage. | [uderzo.it](http://www.uderzo.it/main_products/space_sniffer/) | `scoop install spacesniffer`  (extras)<br>`winget install UderzoSoftware.SpaceSniffer` |
@@ -134,7 +134,7 @@ scoop install oraclejdk temurin21-jdk
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
 | Ditto | Open-source clipboard manager that keeps a searchable history. | [github.com/sabrogden](https://github.com/sabrogden/Ditto) | `scoop install ditto`  (extras)<br>`winget install Ditto.Ditto` |
-| PixPin | Screenshot, pin-to-screen, long-capture, OCR and screen-recording tool. | [pixpin.com](https://pixpin.com/) | Manual install<br>`winget install PixPin.PixPin` |
+| PixPin | Screenshot, pin-to-screen, long-capture, OCR and screen-recording tool. | [pixpin.com](https://pixpin.com/) | `winget install PixPin.PixPin` |
 
 ### Automation
 
@@ -148,8 +148,8 @@ scoop install oraclejdk temurin21-jdk
 
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
-| AnyTXT Searcher | Desktop full-text search engine for local documents. | [anytxt.net](https://anytxt.net/) | Manual install<br>`winget install AnyTXT.AnyTXTSearcher` |
-| PDF24 Creator | Free offline toolkit to create, merge, compress and edit PDF files. | [pdf24.org](https://www.pdf24.org/en/) | Manual install<br>`winget install geeksoftwareGmbH.PDF24Creator` |
+| AnyTXT Searcher | Desktop full-text search engine for local documents. | [anytxt.net](https://anytxt.net/) | `winget install AnyTXT.AnyTXTSearcher` |
+| PDF24 Creator | Free offline toolkit to create, merge, compress and edit PDF files. | [pdf24.org](https://www.pdf24.org/en/) | `winget install geeksoftwareGmbH.PDF24Creator` |
 | Typora | Minimal Markdown editor with live preview and export. | [typora.io](https://typora.io/) | `scoop install typora`  (extras)<br>`winget install appmakes.Typora` |
 | WPS Office | Office suite with Writer, Spreadsheets, Presentation and PDF tools. | [wps.com](https://www.wps.com/) | `scoop install wpsoffice`  (extras)<br>`winget install Kingsoft.WPSOffice` |
 
@@ -166,15 +166,15 @@ scoop install oraclejdk temurin21-jdk
 
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
-| Baidu Netdisk | Cloud storage client from Baidu. | [pan.baidu.com](https://pan.baidu.com/) | Manual install<br>`winget install Baidu.BaiduNetdisk` |
-| Quark Cloud Drive | Cloud storage desktop client from Quark. | [pan.quark.cn](https://pan.quark.cn/) | Manual install<br>`winget install Alibaba.QuarkCloudDrive` |
+| Baidu Netdisk | Cloud storage client from Baidu. | [pan.baidu.com](https://pan.baidu.com/) | `winget install Baidu.BaiduNetdisk` |
+| Quark Cloud Drive | Cloud storage desktop client from Quark. | [pan.quark.cn](https://pan.quark.cn/) | `winget install Alibaba.QuarkCloudDrive` |
 
 ## Media and Graphics
 
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
 | DaVinci Resolve | Video editing, colour grading, visual effects and audio post-production suite. | [blackmagicdesign.com](https://www.blackmagicdesign.com/products/davinciresolve) | Manual install |
-| NetEase Cloud Music | Music streaming client with personalised recommendations and social features. | [music.163.com](https://music.163.com/) | Manual install<br>`winget install NetEase.CloudMusic` |
+| NetEase Cloud Music | Music streaming client with personalised recommendations and social features. | [music.163.com](https://music.163.com/) | `winget install NetEase.CloudMusic` |
 | OBS Studio | Open-source live streaming and screen recording application. | [obsproject.com](https://obsproject.com/) | `scoop install obs-studio`  (extras)<br>`winget install OBSProject.OBSStudio` |
 | pineapple-pictures | Lightweight Qt image viewer with basic editing. | [github.com/BLumia](https://github.com/BLumia/pineapple-pictures) | Manual install |
 | PotPlayer | Feature-rich multimedia player from Daum. | [potplayer.daum.net](https://potplayer.daum.net/) | `scoop install potplayer`  (extras)<br>`winget install Daum.PotPlayer` |
@@ -185,13 +185,13 @@ scoop install oraclejdk temurin21-jdk
 |---|---|---|---|
 | QQ | Tencent instant messenger with file transfer and group chat. | [im.qq.com](https://im.qq.com/) | `scoop install qq`  (extras)<br>`winget install Tencent.QQ.NT` |
 | WeChat | Tencent messaging, payment and mini-program client. | [weixin.qq.com](https://weixin.qq.com/) | `scoop install wechat`  (extras)<br>`winget install Tencent.WeChat.Universal` |
-| WeLink | Huawei Cloud enterprise collaboration and video conferencing client. | [huaweicloud.com](https://www.huaweicloud.com/product/welink.html) | Manual install<br>`winget install Huawei.Welink` |
+| WeLink | Huawei Cloud enterprise collaboration and video conferencing client. | [huaweicloud.com](https://www.huaweicloud.com/product/welink.html) | `winget install Huawei.Welink` |
 
 ## Science and Personal Data
 
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
-| QGIS | Open-source geographic information system for viewing and analysing spatial data. | [qgis.org](https://qgis.org/) | Manual install<br>`winget install OSGeo.QGIS` |
+| QGIS | Open-source geographic information system for viewing and analysing spatial data. | [qgis.org](https://qgis.org/) | `winget install OSGeo.QGIS` |
 | LifeLog | Local-first personal life log with tags, full-text search and Markdown or Excel export. | [github.com/Zzz210s](https://github.com/Zzz210s/LifeLog) | Manual install |
 
 ## AI Tools
