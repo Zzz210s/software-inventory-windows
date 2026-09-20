@@ -182,6 +182,7 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
+| Phone Link | Microsoft app that links an Android or iPhone to Windows for messages, calls, photos and notifications. | [microsoft.com](https://www.microsoft.com/en-us/windows/sync-across-your-devices) | `winget install 9NMPJ99VJBWV` |
 | QQ | Tencent instant messenger with file transfer and group chat. | [im.qq.com](https://im.qq.com/) | `scoop install qq`  (extras) |
 | WeChat | Tencent messaging, payment and mini-program client. | [weixin.qq.com](https://weixin.qq.com/) | `scoop install wechat`  (extras) |
 | WeLink | Huawei Cloud enterprise collaboration and video conferencing client. | [huaweicloud.com](https://www.huaweicloud.com/product/welink.html) | `winget install Huawei.Welink` |

@@ -182,6 +182,7 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
+| 手机连接(Phone Link) | 微软应用,把 Android 或 iPhone 连接到 Windows,在电脑上收发消息、接打电话与查看照片。 | [microsoft.com](https://www.microsoft.com/zh-cn/windows/sync-across-your-devices) | `winget install 9NMPJ99VJBWV` |
 | QQ | 腾讯即时通讯客户端,支持文件传输与群聊。 | [im.qq.com](https://im.qq.com/) | `scoop install qq`  (extras) |
 | WeChat(微信) | 腾讯的即时通讯客户端,支持支付与小程序。 | [weixin.qq.com](https://weixin.qq.com/) | `scoop install wechat`  (extras) |
 | WeLink | 华为云企业协同办公与视频会议客户端。 | [huaweicloud.com](https://www.huaweicloud.com/product/welink.html) | `winget install Huawei.Welink` |
