@@ -101,7 +101,6 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 | Make | GNU build automation tool. | [gnu.org/software/make](https://www.gnu.org/software/make/) | `scoop install make` |
 | ripgrep | Recursive search tool that respects gitignore rules. | [github.com/BurntSushi](https://github.com/BurntSushi/ripgrep) | `scoop install ripgrep` |
 | wget | Command-line downloader for HTTP, HTTPS and FTP. | [gnu.org/software/wget](https://www.gnu.org/software/wget/) | `scoop install wget` |
-| Windows Terminal | Microsoft's modern terminal with tabs, panes and GPU-accelerated rendering. | [github.com/microsoft](https://github.com/microsoft/terminal) | `scoop install windows-terminal` |
 | Xshell | SSH and Telnet terminal client for Windows; the home edition is free. | [xshell.com](https://www.xshell.com/) | Manual install |
 
 ### Build and Container Toolchains
@@ -111,7 +110,6 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 | Docker Desktop | Container platform for building and running Linux containers on Windows. | [docker.com](https://www.docker.com/) | `winget install Docker.DockerDesktop` |
 | Microsoft Visual Studio Build Tools 2026 | MSVC compiler, linker and Windows SDK toolchain for building C++ projects. | [visualstudio.microsoft.com](https://visualstudio.microsoft.com/downloads/) | Manual install |
 | MinGW-Builds (GCC) | GCC C and C++ toolchain for Windows, built from the MinGW-w64 sources. | [github.com/niXman](https://github.com/niXman/mingw-builds-binaries) | Manual install |
-| WSL | Windows Subsystem for Linux: run a Linux distribution alongside Windows. | [learn.microsoft.com](https://learn.microsoft.com/windows/wsl/) | `winget install Microsoft.WSL` |
 
 ## System and Productivity
 

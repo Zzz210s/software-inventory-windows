@@ -101,7 +101,6 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 | Make | GNU 构建自动化工具。 | [gnu.org/software/make](https://www.gnu.org/software/make/) | `scoop install make` |
 | ripgrep | 遵循 gitignore 规则的递归搜索工具。 | [github.com/BurntSushi](https://github.com/BurntSushi/ripgrep) | `scoop install ripgrep` |
 | wget | 通过 HTTP、HTTPS、FTP 下载文件的命令行工具。 | [gnu.org/software/wget](https://www.gnu.org/software/wget/) | `scoop install wget` |
-| Windows Terminal | 微软现代终端,支持标签页、分屏与 GPU 加速渲染。 | [github.com/microsoft](https://github.com/microsoft/terminal) | `scoop install windows-terminal` |
 | Xshell | Windows 上的 SSH / Telnet 终端客户端,家庭版免费。 | [xshell.com](https://www.xshell.com/) | 手动安装 |
 
 ### 构建与容器
@@ -111,7 +110,6 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 | Docker Desktop | 在 Windows 上构建与运行 Linux 容器的容器平台。 | [docker.com](https://www.docker.com/) | `winget install Docker.DockerDesktop` |
 | Microsoft Visual Studio Build Tools 2026 | 用于构建 C++ 项目的 MSVC 编译器、链接器与 Windows SDK 工具链。 | [visualstudio.microsoft.com](https://visualstudio.microsoft.com/downloads/) | 手动安装 |
 | MinGW-Builds(GCC) | 基于 MinGW-w64 源码构建的 Windows 平台 GCC C/C++ 工具链。 | [github.com/niXman](https://github.com/niXman/mingw-builds-binaries) | 手动安装 |
-| WSL | 适用于 Linux 的 Windows 子系统,可在 Windows 上直接运行 Linux 发行版。 | [learn.microsoft.com](https://learn.microsoft.com/zh-cn/windows/wsl/) | `winget install Microsoft.WSL` |
 
 ## 系统与效率
 
