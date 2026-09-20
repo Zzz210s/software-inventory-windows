@@ -21,6 +21,7 @@ A categorized inventory of the software installed on my Windows machine, with a 
   - [Automation](#automation)
 - [Documents and Office](#documents-and-office)
 - [Networking and Cloud](#networking-and-cloud)
+  - [Browsers](#browsers)
   - [Proxy and Acceleration](#proxy-and-acceleration)
   - [Cloud Storage and Sync](#cloud-storage-and-sync)
 - [Media and Graphics](#media-and-graphics)
@@ -100,6 +101,7 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 | Make | GNU build automation tool. | [gnu.org/software/make](https://www.gnu.org/software/make/) | `scoop install make` |
 | ripgrep | Recursive search tool that respects gitignore rules. | [github.com/BurntSushi](https://github.com/BurntSushi/ripgrep) | `scoop install ripgrep` |
 | wget | Command-line downloader for HTTP, HTTPS and FTP. | [gnu.org/software/wget](https://www.gnu.org/software/wget/) | `scoop install wget` |
+| Windows Terminal | Microsoft's modern terminal with tabs, panes and GPU-accelerated rendering. | [github.com/microsoft](https://github.com/microsoft/terminal) | `scoop install windows-terminal` |
 | Xshell | SSH and Telnet terminal client for Windows; the home edition is free. | [xshell.com](https://www.xshell.com/) | Manual install |
 
 ### Build and Container Toolchains
@@ -109,6 +111,7 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 | Docker Desktop | Container platform for building and running Linux containers on Windows. | [docker.com](https://www.docker.com/) | `winget install Docker.DockerDesktop` |
 | Microsoft Visual Studio Build Tools 2026 | MSVC compiler, linker and Windows SDK toolchain for building C++ projects. | [visualstudio.microsoft.com](https://visualstudio.microsoft.com/downloads/) | Manual install |
 | MinGW-Builds (GCC) | GCC C and C++ toolchain for Windows, built from the MinGW-w64 sources. | [github.com/niXman](https://github.com/niXman/mingw-builds-binaries) | Manual install |
+| WSL | Windows Subsystem for Linux: run a Linux distribution alongside Windows. | [learn.microsoft.com](https://learn.microsoft.com/windows/wsl/) | `winget install Microsoft.WSL` |
 
 ## System and Productivity
 
@@ -155,11 +158,17 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 
 ## Networking and Cloud
 
+### Browsers
+
+| Software | Introduction | Official site | Install command |
+|---|---|---|---|
+| Google Chrome | Google's browser with account sync, extensions and site isolation. | [google.com/chrome](https://www.google.com/chrome/) | `scoop install googlechrome` |
+
 ### Proxy and Acceleration
 
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
-| NekoBox (NekoRay) | Qt frontend for sing-box proxy cores; the upstream repository is archived. | [github.com/MatsuriDayo](https://github.com/MatsuriDayo/nekoray) | `scoop install nekobox`  (extras) |
+| Throne | Proxy client built on sing-box and the successor of NekoRay, supporting VLESS, Hysteria and TUIC. | [github.com/throneproj](https://github.com/throneproj/Throne) | `scoop install throne` |
 | Watt Toolkit (Steam++) | Network accelerator and script toolkit for Steam, GitHub and other services. | [steampp.net](https://steampp.net/) | Manual install |
 
 ### Cloud Storage and Sync
@@ -173,6 +182,7 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
+| Affinity | Canva's professional design suite for photo editing, vector design and page layout. | [affinity.studio](https://www.affinity.studio/) | `winget install Canva.Affinity` |
 | DaVinci Resolve | Video editing, colour grading, visual effects and audio post-production suite. | [blackmagicdesign.com](https://www.blackmagicdesign.com/products/davinciresolve) | Manual install |
 | NetEase Cloud Music | Music streaming client with personalised recommendations and social features. | [music.163.com](https://music.163.com/) | `winget install NetEase.CloudMusic` |
 | OBS Studio | Open-source live streaming and screen recording application. | [obsproject.com](https://obsproject.com/) | `scoop install obs-studio`  (extras) |

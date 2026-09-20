@@ -21,6 +21,7 @@
   - [自动化](#自动化)
 - [文档与办公](#文档与办公)
 - [网络与云](#网络与云)
+  - [浏览器](#浏览器)
   - [代理与加速](#代理与加速)
   - [云盘与同步](#云盘与同步)
 - [媒体与图像](#媒体与图像)
@@ -100,6 +101,7 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 | Make | GNU 构建自动化工具。 | [gnu.org/software/make](https://www.gnu.org/software/make/) | `scoop install make` |
 | ripgrep | 遵循 gitignore 规则的递归搜索工具。 | [github.com/BurntSushi](https://github.com/BurntSushi/ripgrep) | `scoop install ripgrep` |
 | wget | 通过 HTTP、HTTPS、FTP 下载文件的命令行工具。 | [gnu.org/software/wget](https://www.gnu.org/software/wget/) | `scoop install wget` |
+| Windows Terminal | 微软现代终端,支持标签页、分屏与 GPU 加速渲染。 | [github.com/microsoft](https://github.com/microsoft/terminal) | `scoop install windows-terminal` |
 | Xshell | Windows 上的 SSH / Telnet 终端客户端,家庭版免费。 | [xshell.com](https://www.xshell.com/) | 手动安装 |
 
 ### 构建与容器
@@ -109,6 +111,7 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 | Docker Desktop | 在 Windows 上构建与运行 Linux 容器的容器平台。 | [docker.com](https://www.docker.com/) | `winget install Docker.DockerDesktop` |
 | Microsoft Visual Studio Build Tools 2026 | 用于构建 C++ 项目的 MSVC 编译器、链接器与 Windows SDK 工具链。 | [visualstudio.microsoft.com](https://visualstudio.microsoft.com/downloads/) | 手动安装 |
 | MinGW-Builds(GCC) | 基于 MinGW-w64 源码构建的 Windows 平台 GCC C/C++ 工具链。 | [github.com/niXman](https://github.com/niXman/mingw-builds-binaries) | 手动安装 |
+| WSL | 适用于 Linux 的 Windows 子系统,可在 Windows 上直接运行 Linux 发行版。 | [learn.microsoft.com](https://learn.microsoft.com/zh-cn/windows/wsl/) | `winget install Microsoft.WSL` |
 
 ## 系统与效率
 
@@ -155,11 +158,17 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 
 ## 网络与云
 
+### 浏览器
+
+| 软件 | 介绍 | 官网 | 安装命令 |
+|---|---|---|---|
+| Google Chrome | 谷歌浏览器,支持账号同步、扩展与站点隔离。 | [google.com/chrome](https://www.google.com/chrome/) | `scoop install googlechrome` |
+
 ### 代理与加速
 
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
-| NekoBox(NekoRay) | 基于 sing-box 的 Qt 代理客户端,上游仓库已归档停止维护。 | [github.com/MatsuriDayo](https://github.com/MatsuriDayo/nekoray) | `scoop install nekobox`  (extras) |
+| Throne | 基于 sing-box 的代理客户端,NekoRay 的后继项目,支持 VLESS、Hysteria、TUIC 等协议。 | [github.com/throneproj](https://github.com/throneproj/Throne) | `scoop install throne` |
 | Watt Toolkit(Steam++) | 面向 Steam、GitHub 等服务的网络加速与脚本工具箱。 | [steampp.net](https://steampp.net/) | 手动安装 |
 
 ### 云盘与同步
@@ -173,6 +182,7 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
+| Affinity | Canva 旗下的专业设计套件,覆盖照片编辑、矢量设计与排版。 | [affinity.studio](https://www.affinity.studio/) | `winget install Canva.Affinity` |
 | DaVinci Resolve | 集剪辑、调色、特效与音频后期于一体的专业视频软件。 | [blackmagicdesign.com](https://www.blackmagicdesign.com/products/davinciresolve) | 手动安装 |
 | NetEase Cloud Music(网易云音乐) | 带个性化推荐与社交功能的音乐客户端。 | [music.163.com](https://music.163.com/) | `winget install NetEase.CloudMusic` |
 | OBS Studio | 开源直播与录屏软件。 | [obsproject.com](https://obsproject.com/) | `scoop install obs-studio`  (extras) |
