@@ -121,7 +121,10 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 | ContextMenuManager | Portable manager for Windows right-click context menu entries. | [github.com/BluePointLilac](https://github.com/BluePointLilac/ContextMenuManager) | `winget install BluePointLilac.ContextMenuManager` |
 | Dism++ | Portable Windows servicing and cleanup utility built on DISM. | [github.com/Chuyu-Team](https://github.com/Chuyu-Team/Dism-Multi-language) | `scoop install dismplusplus`  (extras) |
 | Geek Uninstaller | Portable uninstaller that also removes leftover files and registry keys. | [geekuninstaller.com](https://geekuninstaller.com/) | `scoop install geekuninstaller`  (extras) |
+| LightC | Lightweight C-drive cleanup tool covering junk files, large files, system slimming and uninstall leftovers. | [github.com/Chunyu33](https://github.com/Chunyu33/light-c) | Manual install |
+| Mem Reduct | Lightweight real-time memory monitor that trims working sets once usage crosses a threshold. | [github.com/henrypp](https://github.com/henrypp/memreduct) | `scoop install memreduct` |
 | SpaceSniffer | Treemap view of disk space usage. | [uderzo.it](http://www.uderzo.it/main_products/space_sniffer/) | `scoop install spacesniffer`  (extras) |
+| Viap | Moves installed applications and their data to another drive through NTFS junctions. | [github.com/Chunyu33](https://github.com/Chunyu33/viap) | Manual install |
 
 ### Files and Compression
 

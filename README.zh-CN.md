@@ -121,7 +121,10 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 | ContextMenuManager | 管理 Windows 右键菜单项的便携工具。 | [github.com/BluePointLilac](https://github.com/BluePointLilac/ContextMenuManager) | `winget install BluePointLilac.ContextMenuManager` |
 | Dism++ | 基于 DISM 的便携系统维护与清理工具。 | [github.com/Chuyu-Team](https://github.com/Chuyu-Team/Dism-Multi-language) | `scoop install dismplusplus`  (extras) |
 | Geek Uninstaller | 便携卸载工具,可一并清除残留文件与注册表项。 | [geekuninstaller.com](https://geekuninstaller.com/) | `scoop install geekuninstaller`  (extras) |
+| LightC | 轻量 C 盘清理工具,覆盖垃圾清理、大文件、系统瘦身与卸载残留。 | [github.com/Chunyu33](https://github.com/Chunyu33/light-c) | 手动安装 |
+| Mem Reduct | 轻量内存实时监控工具,占用超过阈值时自动修剪工作集。 | [github.com/henrypp](https://github.com/henrypp/memreduct) | `scoop install memreduct` |
 | SpaceSniffer | 以矩形树图展示磁盘空间占用。 | [uderzo.it](http://www.uderzo.it/main_products/space_sniffer/) | `scoop install spacesniffer`  (extras) |
+| Viap | 通过 NTFS junction 把已安装应用及其数据迁移到其他磁盘。 | [github.com/Chunyu33](https://github.com/Chunyu33/viap) | 手动安装 |
 
 ### 文件与压缩
 
