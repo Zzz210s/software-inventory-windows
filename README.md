@@ -29,6 +29,8 @@ A categorized inventory of the software installed on my Windows machine, with a 
 - [Science and Personal Data](#science-and-personal-data)
 - [AI Tools](#ai-tools)
 - [LLM Clients and Front-ends](#llm-clients-and-front-ends)
+- [Windows Settings](#windows-settings)
+- [Environment Configuration](#environment-configuration)
 - [License](#license)
 
 ## Download and Install Windows
@@ -223,6 +225,45 @@ Clients and command-line front-ends for large language models.
 | OpenCode Desktop | Desktop client for the OpenCode AI coding agent. | [opencode.ai](https://opencode.ai/) | `scoop install opencode-desktop`  (extras) |
 | pi | Coding agent CLI with read, bash, edit and write tools plus session management. | [github.com/earendil-works](https://github.com/earendil-works/pi) | `pnpm add -g @earendil-works/pi-coding-agent` |
 | Zed | High-performance code editor written in Rust. | [zed.dev](https://zed.dev/) | `scoop install zed`  (extras) |
+
+## Windows Settings
+
+Settings detected on this machine (Windows 11 Pro, build 26200):
+
+| Setting | Current state | Notes |
+|---|---|---|
+| Automatic shutdown | Scheduled task `AutoShutdown0400`, daily at 04:00 | Runs `E:\Microsoft-Rewards-Script-4.3.2\scripts\windows\run-shutdown.vbs`; last run on 2026-09-24 succeeded |
+| Fast startup | Enabled (`HiberbootEnabled=1`) | Shutdown is a hybrid shutdown |
+| Long paths | Enabled (`LongPathsEnabled=1`) | Allows paths longer than 260 characters, which Scoop and Git trees rely on |
+| Sleep and hibernation | S0 low-power idle only; S1-S3 and hibernation unavailable | `powercfg /a` |
+| Developer mode | Not enabled | |
+| WSL | Default version 2 | Distributions: `docker-desktop`, `FedoraLinux-44`, `Ubuntu-26.04` |
+| Page file | System managed, `C:\pagefile.sys` 24 GB | Peak usage 4.9 GB with 16 GB of RAM |
+| Custom scheduled tasks | `AutoShutdown0400`, `MemReduct-Elevated`, `MicrosoftRewardsScript`, `Throne AutoRun`, `iGoAudioTaskSession`, `QuickClipboardAdmin`, mount E: at logon, two WPS tasks | Every other task belongs to Windows |
+
+## Environment Configuration
+
+Environment variables and configuration each entry needs. Values are the current state of this machine.
+
+| Software | What to configure | Current state |
+|---|---|---|
+| Oracle JDK 26 | `JAVA_HOME`, `PATH` | `java` and `javac` resolve through `C:\Program Files\Common Files\Oracle\Java\javapath`; the JDK sits in `C:\Program Files\Java\jdk-26`; `JAVA_HOME` still points at Scoop's Temurin 21 |
+| Python | `PATH` (Scoop shims and `Scripts`), pip index | 3.14.6 from Scoop; both directories are on the user `PATH`; no pip mirror configured |
+| Rust (rustup) | `PATH` entry for `%USERPROFILE%\.cargo\bin` | Present; rustc 1.94.1; no `CARGO_HOME` or `RUSTUP_HOME` override |
+| Node.js | `PATH`, npm prefix, `NODE_OPTIONS` | v24.14.0; `C:\Program Files\nodejs` on the machine `PATH`; npm prefix `%APPDATA%\npm`; `NODE_OPTIONS=--max-old-space-size=1536` |
+| pnpm | `PNPM_HOME` and `PATH`, store directory | `PNPM_HOME=%LOCALAPPDATA%\pnpm`, on the user `PATH`; store moved to `E:\node_modules\.pnpm-store\v11` |
+| Git | Identity, credential helper, line endings | `user.name=Zzz210s`; GitHub and Gist credentials come from gh through URL-scoped helpers, the system helper is manager; `core.autocrlf` unset |
+| Scoop | Install root, buckets | Default root `%USERPROFILE%\scoop`; buckets `main`, `extras` and `java` |
+| IntelliJ IDEA, WebStorm | VM options for the launcher | `IDEA_VM_OPTIONS` and the other JetBrains variables point at `E:\0-IntelliJ IDEA 2025.1.2\win2021-2025\vmoptions\*.vmoptions`, set for user and machine |
+| Android Studio | Android SDK | SDK at `%LOCALAPPDATA%\Android\Sdk`, `platform-tools` on the machine `PATH`; `ANDROID_HOME` unset |
+| MinGW-Builds (GCC) | `PATH` entry for `C:\MinGW\bin` | Present |
+| Docker Desktop | WSL 2 backend | WSL default version 2 with a `docker-desktop` distribution; `...\Docker\resources\bin` on the machine `PATH` |
+| cmder | `CMDER_ROOT`, `ConEmuDir` | Both set to the Scoop install |
+| Mem Reduct | Elevated scheduled task | `MemReduct-Elevated` runs with the highest privileges; automatic cleanup needs elevation |
+| LightC, Viap | Administrator rights | Cleaning and junction-based migration need an elevated session |
+| Throne | Administrator rights, routing mode | Scheduled task `Throne AutoRun`; TUN mode needs elevation |
+| AnyTXT Searcher | Index service | `ATService` is disabled and has to be started manually |
+| VS Code, Zed, Xshell | `PATH` (optional) | VS Code `E:\0-Microsoft VS Code\bin` and Zed `%LOCALAPPDATA%\Programs\Zed\bin` on the user `PATH`; Xshell on the machine `PATH` |
 
 ## License
 

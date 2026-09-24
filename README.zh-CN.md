@@ -29,6 +29,8 @@
 - [科学与个人数据](#科学与个人数据)
 - [AI 工具](#ai-工具)
 - [LLM 客户端与操作端](#llm-客户端与操作端)
+- [Windows 设置](#windows-设置)
+- [环境配置](#环境配置)
 - [许可](#许可)
 
 ## Windows 下载与安装
@@ -223,6 +225,45 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 | OpenCode Desktop | OpenCode AI 编程助手的桌面客户端。 | [opencode.ai](https://opencode.ai/) | `scoop install opencode-desktop`  (extras) |
 | pi | 带 read、bash、edit、write 工具与会话管理的编程代理 CLI。 | [github.com/earendil-works](https://github.com/earendil-works/pi) | `pnpm add -g @earendil-works/pi-coding-agent` |
 | Zed | 用 Rust 编写的高性能代码编辑器。 | [zed.dev](https://zed.dev/) | `scoop install zed`  (extras) |
+
+## Windows 设置
+
+本机检测到的设置(Windows 11 专业版,build 26200):
+
+| 设置项 | 当前状态 | 说明 |
+|---|---|---|
+| 自动关机 | 计划任务 `AutoShutdown0400`,每日 04:00 | 执行 `E:\Microsoft-Rewards-Script-4.3.2\scripts\windows\run-shutdown.vbs`;2026-09-24 最近一次执行成功 |
+| 快速启动 | 已启用(`HiberbootEnabled=1`) | 关机为混合关机 |
+| 长路径支持 | 已启用(`LongPathsEnabled=1`) | 允许超过 260 字符的路径,Scoop 与 Git 目录依赖此设置 |
+| 睡眠与休眠 | 仅支持 S0 低电量待机;S1-S3 与休眠不可用 | `powercfg /a` 结果 |
+| 开发者模式 | 未启用 | |
+| WSL | 默认版本 2 | 发行版:`docker-desktop`、`FedoraLinux-44`、`Ubuntu-26.04` |
+| 分页文件 | 系统管理,`C:\pagefile.sys` 24 GB | 物理内存 16 GB,峰值使用 4.9 GB |
+| 自定义计划任务 | `AutoShutdown0400`、`MemReduct-Elevated`、`MicrosoftRewardsScript`、`Throne AutoRun`、`iGoAudioTaskSession`、`QuickClipboardAdmin`、开机自动挂载 E 盘、WPS 两项 | 其余任务均为 Windows 自带 |
+
+## 环境配置
+
+各条目需要的环境变量与配置,取值均为本机当前状态。
+
+| 程序 | 需要配置的内容 | 本机当前状态 |
+|---|---|---|
+| Oracle JDK 26 | `JAVA_HOME`、`PATH` | `java` 与 `javac` 走 `C:\Program Files\Common Files\Oracle\Java\javapath`;JDK 位于 `C:\Program Files\Java\jdk-26`;`JAVA_HOME` 仍指向 scoop 的 Temurin 21 |
+| Python | `PATH`(scoop shims 与 `Scripts`)、pip 源 | scoop 安装的 3.14.6;两个目录都在用户 PATH;未配置 pip 镜像 |
+| Rust (rustup) | 把 `%USERPROFILE%\.cargo\bin` 加入 `PATH` | 已加入;rustc 1.94.1;未覆盖 `CARGO_HOME`/`RUSTUP_HOME` |
+| Node.js | `PATH`、npm prefix、`NODE_OPTIONS` | v24.14.0;`C:\Program Files\nodejs` 在机器 PATH;npm prefix 为 `%APPDATA%\npm`;`NODE_OPTIONS=--max-old-space-size=1536` |
+| pnpm | `PNPM_HOME` 与 `PATH`、store 目录 | `PNPM_HOME=%LOCALAPPDATA%\pnpm`,已在用户 PATH;store 已迁到 `E:\node_modules\.pnpm-store\v11` |
+| Git | 身份、凭据助手、换行 | `user.name=Zzz210s`;GitHub 与 Gist 凭据通过 URL 级 helper 交给 gh,系统级为 manager;未设 `core.autocrlf` |
+| Scoop | 安装根目录、bucket | 默认根目录 `%USERPROFILE%\scoop`;bucket 为 `main`、`extras`、`java` |
+| IntelliJ IDEA、WebStorm | 启动器的 VM 选项 | `IDEA_VM_OPTIONS` 等 JetBrains 变量指向 `E:\0-IntelliJ IDEA 2025.1.2\win2021-2025\vmoptions\*.vmoptions`,用户级与机器级均已设置 |
+| Android Studio | Android SDK | SDK 在 `%LOCALAPPDATA%\Android\Sdk`,`platform-tools` 在机器 PATH;未设 `ANDROID_HOME` |
+| MinGW-Builds (GCC) | 把 `C:\MinGW\bin` 加入 `PATH` | 已加入 |
+| Docker Desktop | WSL 2 后端 | WSL 默认版本 2,存在 `docker-desktop` 发行版;`...\Docker\resources\bin` 在机器 PATH |
+| cmder | `CMDER_ROOT`、`ConEmuDir` | 均指向 scoop 安装目录 |
+| Mem Reduct | 提权计划任务 | `MemReduct-Elevated` 以最高权限运行;自动清理需要提权才生效 |
+| LightC、Viap | 管理员权限 | 清理与 junction 迁移都需要管理员会话 |
+| Throne | 管理员权限、路由模式 | 计划任务 `Throne AutoRun`;TUN 模式需要提权 |
+| AnyTXT Searcher | 索引服务 | `ATService` 已禁用,需要时手动启动 |
+| VS Code、Zed、Xshell | `PATH`(可选) | VS Code `E:\0-Microsoft VS Code\bin` 与 Zed `%LOCALAPPDATA%\Programs\Zed\bin` 在用户 PATH;Xshell 在机器 PATH |
 
 ## 许可
 
