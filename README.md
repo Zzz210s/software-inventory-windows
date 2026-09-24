@@ -54,7 +54,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ```
 
-The install command column names one package manager per entry, picked in this order: Scoop, pnpm, then winget. Rows outside the `main` bucket need their bucket first: `scoop bucket add extras` and `scoop bucket add java`.
+Rows outside the `main` bucket need their bucket first: `scoop bucket add extras` and `scoop bucket add java`.
 
 ## Install pnpm
 
@@ -65,6 +65,8 @@ pnpm is a fast, disk-efficient package manager for Node.js; this list uses it fo
 ```powershell
 Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expression
 ```
+
+The install command column names one package manager per entry, picked in this order: pnpm, Scoop, then winget.
 
 ## Development Tools
 
@@ -221,7 +223,7 @@ Clients and command-line front-ends for large language models.
 
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
-| Claude Code | Anthropic's terminal coding agent for Claude models. | [github.com/anthropics](https://github.com/anthropics/claude-code) | `scoop install claude-code` |
+| Claude Code | Anthropic's terminal coding agent for Claude models. | [github.com/anthropics](https://github.com/anthropics/claude-code) | `pnpm add -g @anthropic-ai/claude-code` |
 | OpenCode Desktop | Desktop client for the OpenCode AI coding agent. | [opencode.ai](https://opencode.ai/) | `scoop install opencode-desktop`  (extras) |
 | pi | Coding agent CLI with read, bash, edit and write tools plus session management. | [github.com/earendil-works](https://github.com/earendil-works/pi) | `pnpm add -g @earendil-works/pi-coding-agent` |
 | Zed | High-performance code editor written in Rust. | [zed.dev](https://zed.dev/) | `scoop install zed`  (extras) |
@@ -247,7 +249,7 @@ Environment variables and configuration each entry needs. Values are the current
 
 | Software | What to configure | Current state |
 |---|---|---|
-| Oracle JDK 26 | `JAVA_HOME`, `PATH` | `java` and `javac` resolve through `C:\Program Files\Common Files\Oracle\Java\javapath`; the JDK sits in `C:\Program Files\Java\jdk-26`; `JAVA_HOME` still points at Scoop's Temurin 21 |
+| Oracle JDK 26 | `JAVA_HOME`, `PATH` | `java` and `javac` resolve through `C:\Program Files\Common Files\Oracle\Java\javapath`; `JAVA_HOME` points at the JDK in `C:\Program Files\Java\jdk-26`. Scoop's Temurin 21 was uninstalled, which dropped `JAVA_HOME` with it, so the variable had to be set again |
 | Python | `PATH` (Scoop shims and `Scripts`), pip index | 3.14.6 from Scoop; both directories are on the user `PATH`; no pip mirror configured |
 | Rust (rustup) | `PATH` entry for `%USERPROFILE%\.cargo\bin` | Present; rustc 1.94.1; no `CARGO_HOME` or `RUSTUP_HOME` override |
 | Node.js | `PATH`, npm prefix, `NODE_OPTIONS` | v24.14.0; `C:\Program Files\nodejs` on the machine `PATH`; npm prefix `%APPDATA%\npm`; `NODE_OPTIONS=--max-old-space-size=1536` |

@@ -54,7 +54,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ```
 
-下表“安装命令”列每个条目只列一个包管理器,按 Scoop、pnpm、winget 的优先级选取;非 main bucket 的条目需先执行 `scoop bucket add extras`、`scoop bucket add java`。
+非 main bucket 的条目需先执行 `scoop bucket add extras`、`scoop bucket add java`。
 
 ## pnpm 安装
 
@@ -65,6 +65,8 @@ pnpm 是快速且节省磁盘空间的 Node.js 包管理器,本清单用它安�
 ```powershell
 Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expression
 ```
+
+安装命令列每个条目只列一个包管理器,按 pnpm、scoop、winget 的优先级选取。
 
 ## 开发工具
 
@@ -221,7 +223,7 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
-| Claude Code | Anthropic 官方面向 Claude 模型的终端编程代理。 | [github.com/anthropics](https://github.com/anthropics/claude-code) | `scoop install claude-code` |
+| Claude Code | Anthropic 官方面向 Claude 模型的终端编程代理。 | [github.com/anthropics](https://github.com/anthropics/claude-code) | `pnpm add -g @anthropic-ai/claude-code` |
 | OpenCode Desktop | OpenCode AI 编程助手的桌面客户端。 | [opencode.ai](https://opencode.ai/) | `scoop install opencode-desktop`  (extras) |
 | pi | 带 read、bash、edit、write 工具与会话管理的编程代理 CLI。 | [github.com/earendil-works](https://github.com/earendil-works/pi) | `pnpm add -g @earendil-works/pi-coding-agent` |
 | Zed | 用 Rust 编写的高性能代码编辑器。 | [zed.dev](https://zed.dev/) | `scoop install zed`  (extras) |
@@ -247,7 +249,7 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 
 | 程序 | 需要配置的内容 | 本机当前状态 |
 |---|---|---|
-| Oracle JDK 26 | `JAVA_HOME`、`PATH` | `java` 与 `javac` 走 `C:\Program Files\Common Files\Oracle\Java\javapath`;JDK 位于 `C:\Program Files\Java\jdk-26`;`JAVA_HOME` 仍指向 scoop 的 Temurin 21 |
+| Oracle JDK 26 | `JAVA_HOME`、`PATH` | `java` 与 `javac` 走 `C:\Program Files\Common Files\Oracle\Java\javapath`;`JAVA_HOME` 指向 `C:\Program Files\Java\jdk-26`。卸载 scoop 的 Temurin 21 会连带删除 `JAVA_HOME`,因此重新设置过一次 |
 | Python | `PATH`(scoop shims 与 `Scripts`)、pip 源 | scoop 安装的 3.14.6;两个目录都在用户 PATH;未配置 pip 镜像 |
 | Rust (rustup) | 把 `%USERPROFILE%\.cargo\bin` 加入 `PATH` | 已加入;rustc 1.94.1;未覆盖 `CARGO_HOME`/`RUSTUP_HOME` |
 | Node.js | `PATH`、npm prefix、`NODE_OPTIONS` | v24.14.0;`C:\Program Files\nodejs` 在机器 PATH;npm prefix 为 `%APPDATA%\npm`;`NODE_OPTIONS=--max-old-space-size=1536` |
