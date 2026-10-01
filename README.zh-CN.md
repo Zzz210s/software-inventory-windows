@@ -107,17 +107,17 @@ Get-Content "$env:USERPROFILE\Documents\UniGetUI\*.ubundle" | ConvertFrom-Json |
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
 | Android Studio | 基于 IntelliJ IDEA 的官方安卓应用开发 IDE。 | [developer.android.com](https://developer.android.com/studio) | `scoop install android-studio`  (extras) |
-| IntelliJ IDEA | JetBrains 出品的 JVM 语言 IDE,manifest 安装免费的社区版。 | [jetbrains.com/idea](https://www.jetbrains.com/idea/) | `scoop install idea`  (extras) |
-| Microsoft VS Code | 可扩展的代码编辑器,内置 Git、调试器与扩展市场。 | [code.visualstudio.com](https://code.visualstudio.com/) | `scoop install vscode`  (extras) |
+| IntelliJ IDEA | JetBrains 面向 JVM 语言的 IDE;本机装的是 Ultimate 版,由 WinGet 管理。 | [jetbrains.com/idea](https://www.jetbrains.com/idea/) | `winget install JetBrains.IntelliJIDEA.Ultimate` |
+| Microsoft VS Code | 可扩展的代码编辑器,内置 Git、调试器与扩展体系。 | [code.visualstudio.com](https://code.visualstudio.com/) | `winget install Microsoft.VisualStudioCode` |
 | 微信web开发者工具 | 开发微信小程序与公众号的官方 IDE。 | [developers.weixin.qq.com](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) | `winget install Tencent.WeixinDevTools` |
-| WebStorm | JetBrains 出品的 JavaScript / TypeScript IDE。 | [jetbrains.com/webstorm](https://www.jetbrains.com/webstorm/) | `scoop install webstorm`  (extras) |
+| WebStorm | JetBrains 面向 JavaScript 与 TypeScript 的 IDE。 | [jetbrains.com/webstorm](https://www.jetbrains.com/webstorm/) | `winget install JetBrains.WebStorm` |
 
 ### 运行时与包管理
 
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
-| MinGW-Builds(GCC) | 基于 MinGW-w64 源码构建的 Windows 平台 GCC C/C++ 工具链。 | [github.com/niXman](https://github.com/niXman/mingw-builds-binaries) | 手动安装 |
-| Node.js | 用于工具链与服务端代码的 JavaScript 运行时。 | [nodejs.org](https://nodejs.org/) | `winget install OpenJS.NodeJS.LTS` |
+| MinGW-Builds(GCC) | 由 MinGW-w64 源码构建的 Windows 平台 GCC C/C++ 工具链。 | [github.com/niXman](https://github.com/niXman/mingw-builds-binaries) | `scoop install mingw` |
+| Node.js | 用于工具链与服务端代码的 JavaScript 运行时。 | [nodejs.org](https://nodejs.org/) | `scoop install nodejs-lts` |
 | Oracle JDK 26 | Oracle 官方发布的 Java 26;为需要它的项目保留。 | [oracle.com/java](https://www.oracle.com/java/technologies/downloads/) | `winget install Oracle.JDK.26` |
 | Temurin 21 (LTS) | Eclipse Temurin 发布的 OpenJDK 21;命令行 `java` 默认指向它。 | [adoptium.net](https://adoptium.net/) | `scoop install temurin21-jdk`  (java) |
 | pnpm | 快速且节省磁盘空间的 Node.js 包管理器。 | [pnpm.io](https://pnpm.io/) | `scoop install pnpm` |
@@ -292,7 +292,7 @@ Get-Content "$env:USERPROFILE\Documents\UniGetUI\*.ubundle" | ConvertFrom-Json |
 | Scoop | 安装根目录、bucket | 默认根目录 `%USERPROFILE%\scoop`;bucket 为 `main`、`extras`、`java` |
 | IntelliJ IDEA、WebStorm | 启动器的 VM 选项 | `IDEA_VM_OPTIONS` 等 JetBrains 变量指向 `E:\0-IntelliJ IDEA 2025.1.2\win2021-2025\vmoptions\*.vmoptions`,用户级与机器级均已设置 |
 | Android Studio | Android SDK | SDK 在 `%LOCALAPPDATA%\Android\Sdk`,`platform-tools` 在机器 PATH;未设 `ANDROID_HOME` |
-| MinGW-Builds (GCC) | 把 `C:\MinGW\bin` 加入 `PATH` | 已加入 |
+| MinGW-Builds (GCC) | 把 `C:\MinGW\bin` 加到 `PATH` | 已加入 |
 | Docker Desktop | WSL 2 后端 | WSL 默认版本 2,存在 `docker-desktop` 发行版;`...\Docker\resources\bin` 在机器 PATH |
 | cmder | `CMDER_ROOT`、`ConEmuDir` | 都指向 Chocolatey 安装目录 `C:\tools\Cmder` |
 | Mem Reduct | 需提权计划任务 | 由 Chocolatey 安装;`MemReduct-Elevated` 以最高权限运行,因为自动清理需要提权。阈值 93% |

@@ -107,17 +107,17 @@ Get-Content "$env:USERPROFILE\Documents\UniGetUI\*.ubundle" | ConvertFrom-Json |
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
 | Android Studio | Official IDE for Android app development, built on IntelliJ IDEA. | [developer.android.com](https://developer.android.com/studio) | `scoop install android-studio`  (extras) |
-| IntelliJ IDEA | JetBrains IDE for JVM languages; the manifest installs the free Community edition. | [jetbrains.com/idea](https://www.jetbrains.com/idea/) | `scoop install idea`  (extras) |
-| Microsoft VS Code | Extensible code editor with built-in Git, debugger and extensions. | [code.visualstudio.com](https://code.visualstudio.com/) | `scoop install vscode`  (extras) |
+| IntelliJ IDEA | JetBrains IDE for JVM languages; installed here as Ultimate through WinGet. | [jetbrains.com/idea](https://www.jetbrains.com/idea/) | `winget install JetBrains.IntelliJIDEA.Ultimate` |
+| Microsoft VS Code | Extensible code editor with built-in Git, debugger and extensions. | [code.visualstudio.com](https://code.visualstudio.com/) | `winget install Microsoft.VisualStudioCode` |
 | WeChat DevTools | Official IDE for developing WeChat Mini Programs and Official Accounts. | [developers.weixin.qq.com](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) | `winget install Tencent.WeixinDevTools` |
-| WebStorm | JetBrains IDE for JavaScript and TypeScript development. | [jetbrains.com/webstorm](https://www.jetbrains.com/webstorm/) | `scoop install webstorm`  (extras) |
+| WebStorm | JetBrains IDE for JavaScript and TypeScript development. | [jetbrains.com/webstorm](https://www.jetbrains.com/webstorm/) | `winget install JetBrains.WebStorm` |
 
 ### Runtimes and Package Managers
 
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
-| MinGW-Builds (GCC) | GCC C and C++ toolchain for Windows, built from the MinGW-w64 sources. | [github.com/niXman](https://github.com/niXman/mingw-builds-binaries) | Manual install |
-| Node.js | JavaScript runtime used for tooling and server-side code. | [nodejs.org](https://nodejs.org/) | `winget install OpenJS.NodeJS.LTS` |
+| MinGW-Builds (GCC) | GCC C and C++ toolchain for Windows, built from the MinGW-w64 sources. | [github.com/niXman](https://github.com/niXman/mingw-builds-binaries) | `scoop install mingw` |
+| Node.js | JavaScript runtime used for tooling and server-side code. | [nodejs.org](https://nodejs.org/) | `scoop install nodejs-lts` |
 | Oracle JDK 26 | Oracle OpenJDK distribution of Java 26; kept for projects that need it. | [oracle.com/java](https://www.oracle.com/java/technologies/downloads/) | `winget install Oracle.JDK.26` |
 | Temurin 21 (LTS) | Eclipse Temurin build of OpenJDK 21; the default `java` on the command line. | [adoptium.net](https://adoptium.net/) | `scoop install temurin21-jdk`  (java) |
 | pnpm | Fast, disk-efficient package manager for Node.js projects. | [pnpm.io](https://pnpm.io/) | `scoop install pnpm` |
