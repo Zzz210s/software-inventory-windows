@@ -67,7 +67,7 @@ pnpm is a fast, disk-efficient package manager for Node.js; this list uses it fo
 Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expression
 ```
 
-Applications go through **UniGetUI**; SDKs, runtimes and command-line tools come from Scoop. The install command column names the manager that owns each entry.
+Applications go through **UniGetUI**; runtimes, SDKs and command-line tools come from Scoop or WinGet. The install command column names the manager that owns each entry.
 
 ## Package Management
 
@@ -117,8 +117,8 @@ Get-Content "$env:USERPROFILE\Documents\UniGetUI\*.ubundle" | ConvertFrom-Json |
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
 | MinGW-Builds (GCC) | GCC C and C++ toolchain for Windows, built from the MinGW-w64 sources. | [github.com/niXman](https://github.com/niXman/mingw-builds-binaries) | Manual install |
-| Node.js | JavaScript runtime used for tooling and server-side code. | [nodejs.org](https://nodejs.org/) | Manual install |
-| Oracle JDK 26 | Oracle OpenJDK distribution of Java 26. | [oracle.com/java](https://www.oracle.com/java/technologies/downloads/) | Manual install |
+| Node.js | JavaScript runtime used for tooling and server-side code. | [nodejs.org](https://nodejs.org/) | `winget install OpenJS.NodeJS.LTS` |
+| Oracle JDK 26 | Oracle OpenJDK distribution of Java 26; kept for projects that need it. | [oracle.com/java](https://www.oracle.com/java/technologies/downloads/) | `winget install Oracle.JDK.26` |
 | Temurin 21 (LTS) | Eclipse Temurin build of OpenJDK 21; the default `java` on the command line. | [adoptium.net](https://adoptium.net/) | `scoop install temurin21-jdk`  (java) |
 | pnpm | Fast, disk-efficient package manager for Node.js projects. | [pnpm.io](https://pnpm.io/) | `scoop install pnpm` |
 | Python | General-purpose programming language and interpreter. | [python.org](https://www.python.org/) | `scoop install python` |

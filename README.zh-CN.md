@@ -67,7 +67,7 @@ pnpm 是快速且节省磁盘空间的 Node.js 包管理器,本清单用它安�
 Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expression
 ```
 
-应用统一走 **UniGetUI**;SDK、运行时与命令行工具走 Scoop。安装命令列标注的是该条目实际归属的管理器。
+应用统一走 **UniGetUI**;运行时、SDK 与命令行工具来自 Scoop 或 WinGet。安装命令列标注的是该条目实际归属的管理器。
 
 ## 包管理器与统一管理
 
@@ -117,8 +117,8 @@ Get-Content "$env:USERPROFILE\Documents\UniGetUI\*.ubundle" | ConvertFrom-Json |
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
 | MinGW-Builds(GCC) | 基于 MinGW-w64 源码构建的 Windows 平台 GCC C/C++ 工具链。 | [github.com/niXman](https://github.com/niXman/mingw-builds-binaries) | 手动安装 |
-| Node.js | 用于工具链与服务端开发的 JavaScript 运行时。 | [nodejs.org](https://nodejs.org/) | Manual install |
-| Oracle JDK 26 | Oracle 官方的 Java 26 OpenJDK 发行版。 | [oracle.com/java](https://www.oracle.com/java/technologies/downloads/) | Manual install |
+| Node.js | 用于工具链与服务端代码的 JavaScript 运行时。 | [nodejs.org](https://nodejs.org/) | `winget install OpenJS.NodeJS.LTS` |
+| Oracle JDK 26 | Oracle 官方发布的 Java 26;为需要它的项目保留。 | [oracle.com/java](https://www.oracle.com/java/technologies/downloads/) | `winget install Oracle.JDK.26` |
 | Temurin 21 (LTS) | Eclipse Temurin 发布的 OpenJDK 21;命令行 `java` 默认指向它。 | [adoptium.net](https://adoptium.net/) | `scoop install temurin21-jdk`  (java) |
 | pnpm | 快速且节省磁盘空间的 Node.js 包管理器。 | [pnpm.io](https://pnpm.io/) | `scoop install pnpm` |
 | Python | 通用编程语言与解释器。 | [python.org](https://www.python.org/) | `scoop install python` |
@@ -286,7 +286,7 @@ Get-Content "$env:USERPROFILE\Documents\UniGetUI\*.ubundle" | ConvertFrom-Json |
 | Temurin 21 (LTS) | `JAVA_HOME`、`PATH` | 用户级 `JAVA_HOME` 与 `PATH` 上的 `java`/`javac` 都指向 `%USERPROFILE%\scoop\apps\temurin21-jdk\current`,命令行与 Gradle 保持一致 |
 | Python | `PATH`(scoop shims 与 `Scripts`)、pip 源 | scoop 安装的 3.14.6;两个目录都在用户 PATH;未配置 pip 镜像 |
 | Rust (rustup) | 把 `%USERPROFILE%\.cargo\bin` 加入 `PATH` | 已加入;rustc 1.98.1;未覆盖 `CARGO_HOME`/`RUSTUP_HOME` |
-| Node.js | `PATH`、npm prefix、`NODE_OPTIONS` | v24.14.0;`C:\Program Files\nodejs` 在机器 PATH;npm prefix 为 `%APPDATA%\npm`;`NODE_OPTIONS=--max-old-space-size=1536` |
+| Node.js | `PATH`、npm prefix、`NODE_OPTIONS` | v24.14.0;`C:\Program Files\nodejs` 在机器级 PATH;npm prefix 为 `%APPDATA%\npm`;`NODE_OPTIONS=--max-old-space-size=1536` |
 | pnpm | `PNPM_HOME` 与 `PATH`、store 目录 | `PNPM_HOME=%LOCALAPPDATA%\pnpm`,已在用户 PATH;store 已迁到 `E:\node_modules\.pnpm-store\v11` |
 | Git | 身份、凭据助手、换行 | `user.name=Zzz210s`;GitHub 与 Gist 凭据通过 URL 级 helper 交给 gh,系统级为 manager;未设 `core.autocrlf` |
 | Scoop | 安装根目录、bucket | 默认根目录 `%USERPROFILE%\scoop`;bucket 为 `main`、`extras`、`java` |
