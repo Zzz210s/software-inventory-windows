@@ -9,6 +9,7 @@
 - [Windows 下载与安装](#windows-下载与安装)
 - [Scoop 安装](#scoop-安装)
 - [pnpm 安装](#pnpm-安装)
+- [包管理器与统一管理](#包管理器与统一管理)
 - [开发工具](#开发工具)
   - [IDE 与编辑器](#ide-与编辑器)
   - [运行时与包管理](#运行时与包管理)
@@ -66,7 +67,38 @@ pnpm 是快速且节省磁盘空间的 Node.js 包管理器,本清单用它安�
 Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expression
 ```
 
-安装命令列每个条目只列一个包管理器,按 pnpm、scoop、winget 的优先级选取。
+应用统一走 **UniGetUI**;SDK、运行时与命令行工具走 Scoop。安装命令列标注的是该条目实际归属的管理器。
+
+## 包管理器与统一管理
+
+应用统一通过 **[UniGetUI](https://github.com/marticliment/UniGetUI)** 管理 —— 它是一个图形界面,背后同时驱动多个包管理器。SDK、运行时与命令行工具仍归 Scoop;凡是带图形安装程序的应用都走 UniGetUI。
+
+- 官网:[marticliment.com/unigetui](https://marticliment.com/unigetui/)
+
+| 后端 | 在本机的角色 | 说明 |
+|---|---|---|
+| Chocolatey | 机器级安装的应用 | 通过 UniGetUI 调用;`choco` 本身不在 `PATH` 里 |
+| Scoop | SDK、运行时、命令行工具 | 从命令行安装与升级 |
+| WinGet | 有官方清单的应用 | 通过 UniGetUI 调用,不直接手敲 |
+| pip | Python 包 | 由 Scoop 安装的 Python 提供 |
+| npm | Node.js 全局命令行工具 | |
+| Cargo | Rust 二进制 | 有预编译产物时由 `cargo-binstall` 直接拉取 |
+| PowerShell Gallery | PowerShell 模块 | |
+
+### 软件清单备份
+
+UniGetUI 会写出一份 `.ubundle` 文件,列出所有可管理的软件包 —— 这是重装本机的依据:
+
+- 在 **设置 -> 备份** 里启用:本地备份带时间戳,保留最近 5 份。
+- 产物位置:`%USERPROFILE%\Documents\UniGetUI\`,每次运行生成一个 `.ubundle`,约 230 个包。
+- 恢复方式:把该文件作为启动参数传给 UniGetUI,或在它的 bundle 页面导入。
+- UniGetUI 管不了的包(Steam 游戏、Microsoft Store 应用、本地安装程序)会在同一文件里单独列出。
+
+```powershell
+# 查看当前备份里都有什么
+Get-Content "$env:USERPROFILE\Documents\UniGetUI\*.ubundle" | ConvertFrom-Json |
+  Select-Object -ExpandProperty packages | Group-Object ManagerName | Sort-Object Count -Descending
+```
 
 ## 开发工具
 
@@ -85,8 +117,9 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
 | MinGW-Builds(GCC) | 基于 MinGW-w64 源码构建的 Windows 平台 GCC C/C++ 工具链。 | [github.com/niXman](https://github.com/niXman/mingw-builds-binaries) | 手动安装 |
-| Node.js | 用于工具链与服务端开发的 JavaScript 运行时。 | [nodejs.org](https://nodejs.org/) | `scoop install nodejs` |
-| Oracle JDK 26 | Oracle 官方的 Java 26 OpenJDK 发行版。 | [oracle.com/java](https://www.oracle.com/java/technologies/downloads/) | `scoop install oraclejdk`  (java) |
+| Node.js | 用于工具链与服务端开发的 JavaScript 运行时。 | [nodejs.org](https://nodejs.org/) | Manual install |
+| Oracle JDK 26 | Oracle 官方的 Java 26 OpenJDK 发行版。 | [oracle.com/java](https://www.oracle.com/java/technologies/downloads/) | Manual install |
+| Temurin 21 (LTS) | Eclipse Temurin 发布的 OpenJDK 21;命令行 `java` 默认指向它。 | [adoptium.net](https://adoptium.net/) | `scoop install temurin21-jdk`  (java) |
 | pnpm | 快速且节省磁盘空间的 Node.js 包管理器。 | [pnpm.io](https://pnpm.io/) | `scoop install pnpm` |
 | Python | 通用编程语言与解释器。 | [python.org](https://www.python.org/) | `scoop install python` |
 | Rust(rustup) | Rust 语言工具链安装器与版本管理器。 | [rust-lang.org](https://www.rust-lang.org/) | `scoop install rustup` |
@@ -96,10 +129,10 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 | 软件 | 介绍 | 官网 | 安装命令 |
 |---|---|---|---|
 | bat | 带语法高亮与 Git 集成的 cat 替代品。 | [github.com/sharkdp](https://github.com/sharkdp/bat) | `scoop install bat` |
-| cmder | 内置 ConEmu 与 Clink 的便携控制台模拟器。 | [cmder.net](https://cmder.net/) | `scoop install cmder` |
+| cmder | 内置 ConEmu 与 Clink 的便携控制台模拟器。 | [cmder.net](https://cmder.net/) | `choco install cmder` |
 | Dark(WiX) | WiX 工具集中的 Windows 安装包反编译器。 | [wixtoolset.org](https://wixtoolset.org/) | `scoop install dark` |
 | fd | 快速且更易用的 find 替代品。 | [github.com/sharkdp](https://github.com/sharkdp/fd) | `scoop install fd` |
-| Git | 分布式版本控制系统。 | [git-scm.com](https://git-scm.com/) | `scoop install git` |
+| Git | 分布式版本控制系统。 | [git-scm.com](https://git-scm.com/) | `winget install Git.Git` |
 | GitHub CLI | GitHub 官方命令行客户端。 | [cli.github.com](https://cli.github.com/) | `scoop install gh` |
 | Helix | 内置语言服务器支持的模态文本编辑器。 | [helix-editor.com](https://helix-editor.com/) | `scoop install helix` |
 | jq | 命令行 JSON 处理工具。 | [jqlang.github.io](https://jqlang.github.io/jq/) | `scoop install jq` |
@@ -126,7 +159,7 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 | Dism++ | 基于 DISM 的便携系统维护与清理工具。 | [github.com/Chuyu-Team](https://github.com/Chuyu-Team/Dism-Multi-language) | `scoop install dismplusplus`  (extras) |
 | Geek Uninstaller | 便携卸载工具,可一并清除残留文件与注册表项。 | [geekuninstaller.com](https://geekuninstaller.com/) | `scoop install geekuninstaller`  (extras) |
 | LightC | 轻量 C 盘清理工具,覆盖垃圾清理、大文件、系统瘦身与卸载残留。 | [github.com/Chunyu33](https://github.com/Chunyu33/light-c) | 手动安装 |
-| Mem Reduct | 轻量内存实时监控工具,占用超过阈值时自动修剪工作集。 | [github.com/henrypp](https://github.com/henrypp/memreduct) | `scoop install memreduct` |
+| Mem Reduct | 轻量内存实时监控工具,占用超过阈值时自动修剪工作集。 | [github.com/henrypp](https://github.com/henrypp/memreduct) | `choco install memreduct` |
 | SpaceSniffer | 以矩形树图展示磁盘空间占用。 | [uderzo.it](http://www.uderzo.it/main_products/space_sniffer/) | `scoop install spacesniffer`  (extras) |
 | Viap | 通过 NTFS junction 把已安装应用及其数据迁移到其他磁盘。 | [github.com/Chunyu33](https://github.com/Chunyu33/viap) | 手动安装 |
 
@@ -249,9 +282,10 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 
 | 程序 | 需要配置的内容 | 本机当前状态 |
 |---|---|---|
-| Oracle JDK 26 | `JAVA_HOME`、`PATH` | `java` 与 `javac` 走 `C:\Program Files\Common Files\Oracle\Java\javapath`;`JAVA_HOME` 指向 `C:\Program Files\Java\jdk-26`。卸载 scoop 的 Temurin 21 会连带删除 `JAVA_HOME`,因此重新设置过一次 |
+| Oracle JDK 26 | 手动安装位置 | `C:\Program Files\Java\jdk-26`;它的 `javapath` 条目已从机器级 `PATH` 移除,不再遮蔽默认 JDK |
+| Temurin 21 (LTS) | `JAVA_HOME`、`PATH` | 用户级 `JAVA_HOME` 与 `PATH` 上的 `java`/`javac` 都指向 `%USERPROFILE%\scoop\apps\temurin21-jdk\current`,命令行与 Gradle 保持一致 |
 | Python | `PATH`(scoop shims 与 `Scripts`)、pip 源 | scoop 安装的 3.14.6;两个目录都在用户 PATH;未配置 pip 镜像 |
-| Rust (rustup) | 把 `%USERPROFILE%\.cargo\bin` 加入 `PATH` | 已加入;rustc 1.94.1;未覆盖 `CARGO_HOME`/`RUSTUP_HOME` |
+| Rust (rustup) | 把 `%USERPROFILE%\.cargo\bin` 加入 `PATH` | 已加入;rustc 1.98.1;未覆盖 `CARGO_HOME`/`RUSTUP_HOME` |
 | Node.js | `PATH`、npm prefix、`NODE_OPTIONS` | v24.14.0;`C:\Program Files\nodejs` 在机器 PATH;npm prefix 为 `%APPDATA%\npm`;`NODE_OPTIONS=--max-old-space-size=1536` |
 | pnpm | `PNPM_HOME` 与 `PATH`、store 目录 | `PNPM_HOME=%LOCALAPPDATA%\pnpm`,已在用户 PATH;store 已迁到 `E:\node_modules\.pnpm-store\v11` |
 | Git | 身份、凭据助手、换行 | `user.name=Zzz210s`;GitHub 与 Gist 凭据通过 URL 级 helper 交给 gh,系统级为 manager;未设 `core.autocrlf` |
@@ -260,12 +294,14 @@ Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expr
 | Android Studio | Android SDK | SDK 在 `%LOCALAPPDATA%\Android\Sdk`,`platform-tools` 在机器 PATH;未设 `ANDROID_HOME` |
 | MinGW-Builds (GCC) | 把 `C:\MinGW\bin` 加入 `PATH` | 已加入 |
 | Docker Desktop | WSL 2 后端 | WSL 默认版本 2,存在 `docker-desktop` 发行版;`...\Docker\resources\bin` 在机器 PATH |
-| cmder | `CMDER_ROOT`、`ConEmuDir` | 均指向 scoop 安装目录 |
-| Mem Reduct | 提权计划任务 | `MemReduct-Elevated` 以最高权限运行;自动清理需要提权才生效 |
+| cmder | `CMDER_ROOT`、`ConEmuDir` | 都指向 Chocolatey 安装目录 `C:\tools\Cmder` |
+| Mem Reduct | 需提权计划任务 | 由 Chocolatey 安装;`MemReduct-Elevated` 以最高权限运行,因为自动清理需要提权。阈值 93% |
 | LightC、Viap | 管理员权限 | 清理与 junction 迁移都需要管理员会话 |
 | Throne | 管理员权限、路由模式 | 计划任务 `Throne AutoRun`;TUN 模式需要提权 |
 | AnyTXT Searcher | 索引服务 | `ATService` 已禁用,需要时手动启动 |
-| VS Code、Zed、Xshell | `PATH`(可选) | VS Code `E:\0-Microsoft VS Code\bin` 与 Zed `%LOCALAPPDATA%\Programs\Zed\bin` 在用户 PATH;Xshell 在机器 PATH |
+| VS Code、Zed、Xshell | `PATH`(可选) | VS Code `E:\0-Microsoft VS Code\bin` 与 Zed `%LOCALAPPDATA%\Programs\Zed\bin` 在用户 PATH;Xshell 在机器级 PATH |
+| cargo-binstall | 解析器使用的 DNS | 它读默认网卡的 DNS 列表而不是系统解析器。WLAN 网卡已设为 `172.19.0.2`(Throne 的 TUN DNS,本机唯一可用的),并以 `223.5.5.5` 作为备选 |
+| 用户 `PATH` | 失效条目 | 已删除 15 个指向已移除软件的条目(Scoop 时期的 3 个 cmder 残留、旧 Bandizip 路径、Ollama、9 个轮换后的 Claude 插件缓存路径);41 -> 26 条 |
 
 ## 许可
 

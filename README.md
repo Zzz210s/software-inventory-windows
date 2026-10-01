@@ -9,6 +9,7 @@ A categorized inventory of the software installed on my Windows machine, with a 
 - [Download and Install Windows](#download-and-install-windows)
 - [Install Scoop](#install-scoop)
 - [Install pnpm](#install-pnpm)
+- [Package Management](#package-management)
 - [Development Tools](#development-tools)
   - [IDE and Editors](#ide-and-editors)
   - [Runtimes and Package Managers](#runtimes-and-package-managers)
@@ -66,7 +67,38 @@ pnpm is a fast, disk-efficient package manager for Node.js; this list uses it fo
 Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expression
 ```
 
-The install command column names one package manager per entry, picked in this order: pnpm, Scoop, then winget.
+Applications go through **UniGetUI**; SDKs, runtimes and command-line tools come from Scoop. The install command column names the manager that owns each entry.
+
+## Package Management
+
+Applications are managed through **[UniGetUI](https://github.com/marticliment/UniGetUI)**, a graphical front end that drives several package managers at once. Scoop keeps the SDKs, runtimes and command-line tools; anything with a graphical installer goes through UniGetUI.
+
+- Official site: [marticliment.com/unigetui](https://marticliment.com/unigetui/)
+
+| Backend | Role on this machine | Notes |
+|---|---|---|
+| Chocolatey | Applications installed machine-wide | Called through UniGetUI; `choco` itself is not on `PATH` |
+| Scoop | SDKs, runtimes, command-line tools | Installed and updated from the command line |
+| WinGet | Applications that ship an official manifest | Called through UniGetUI, not typed by hand |
+| pip | Python packages | Provided by the Scoop Python installation |
+| npm | Global Node.js command-line tools | |
+| Cargo | Rust binaries | `cargo-binstall` fetches prebuilt binaries when they exist |
+| PowerShell Gallery | PowerShell modules | |
+
+### Package list backup
+
+UniGetUI writes a `.ubundle` file listing every manageable package; this file is the source of truth for rebuilding the machine:
+
+- Enabled under **Settings -> Backup**: local backup with timestamps, the last 5 copies are kept.
+- Output: `%USERPROFILE%\Documents\UniGetUI\` - one `.ubundle` per run, roughly 230 packages.
+- To restore: pass the file to UniGetUI as a command-line argument, or import it from the bundle page.
+- Packages UniGetUI cannot manage (Steam titles, Microsoft Store apps, local installers) are listed separately inside the same file.
+
+```powershell
+# what the current backup contains
+Get-Content "$env:USERPROFILE\Documents\UniGetUI\*.ubundle" | ConvertFrom-Json |
+  Select-Object -ExpandProperty packages | Group-Object ManagerName | Sort-Object Count -Descending
+```
 
 ## Development Tools
 
@@ -85,8 +117,9 @@ The install command column names one package manager per entry, picked in this o
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
 | MinGW-Builds (GCC) | GCC C and C++ toolchain for Windows, built from the MinGW-w64 sources. | [github.com/niXman](https://github.com/niXman/mingw-builds-binaries) | Manual install |
-| Node.js | JavaScript runtime used for tooling and server-side code. | [nodejs.org](https://nodejs.org/) | `scoop install nodejs` |
-| Oracle JDK 26 | Oracle OpenJDK distribution of Java 26. | [oracle.com/java](https://www.oracle.com/java/technologies/downloads/) | `scoop install oraclejdk`  (java) |
+| Node.js | JavaScript runtime used for tooling and server-side code. | [nodejs.org](https://nodejs.org/) | Manual install |
+| Oracle JDK 26 | Oracle OpenJDK distribution of Java 26. | [oracle.com/java](https://www.oracle.com/java/technologies/downloads/) | Manual install |
+| Temurin 21 (LTS) | Eclipse Temurin build of OpenJDK 21; the default `java` on the command line. | [adoptium.net](https://adoptium.net/) | `scoop install temurin21-jdk`  (java) |
 | pnpm | Fast, disk-efficient package manager for Node.js projects. | [pnpm.io](https://pnpm.io/) | `scoop install pnpm` |
 | Python | General-purpose programming language and interpreter. | [python.org](https://www.python.org/) | `scoop install python` |
 | Rust (rustup) | Toolchain installer and version manager for the Rust language. | [rust-lang.org](https://www.rust-lang.org/) | `scoop install rustup` |
@@ -96,10 +129,10 @@ The install command column names one package manager per entry, picked in this o
 | Software | Introduction | Official site | Install command |
 |---|---|---|---|
 | bat | cat clone with syntax highlighting and Git integration. | [github.com/sharkdp](https://github.com/sharkdp/bat) | `scoop install bat` |
-| cmder | Portable console emulator bundling ConEmu and Clink. | [cmder.net](https://cmder.net/) | `scoop install cmder` |
+| cmder | Portable console emulator bundling ConEmu and Clink. | [cmder.net](https://cmder.net/) | `choco install cmder` |
 | Dark (WiX) | Decompiler from the WiX toolset for Windows installer packages. | [wixtoolset.org](https://wixtoolset.org/) | `scoop install dark` |
 | fd | Fast, user-friendly alternative to find. | [github.com/sharkdp](https://github.com/sharkdp/fd) | `scoop install fd` |
-| Git | Distributed version control system. | [git-scm.com](https://git-scm.com/) | `scoop install git` |
+| Git | Distributed version control system. | [git-scm.com](https://git-scm.com/) | `winget install Git.Git` |
 | GitHub CLI | Official command-line client for GitHub. | [cli.github.com](https://cli.github.com/) | `scoop install gh` |
 | Helix | Modal text editor with built-in language server support. | [helix-editor.com](https://helix-editor.com/) | `scoop install helix` |
 | jq | Command-line JSON processor. | [jqlang.github.io](https://jqlang.github.io/jq/) | `scoop install jq` |
@@ -126,7 +159,7 @@ The install command column names one package manager per entry, picked in this o
 | Dism++ | Portable Windows servicing and cleanup utility built on DISM. | [github.com/Chuyu-Team](https://github.com/Chuyu-Team/Dism-Multi-language) | `scoop install dismplusplus`  (extras) |
 | Geek Uninstaller | Portable uninstaller that also removes leftover files and registry keys. | [geekuninstaller.com](https://geekuninstaller.com/) | `scoop install geekuninstaller`  (extras) |
 | LightC | Lightweight C-drive cleanup tool covering junk files, large files, system slimming and uninstall leftovers. | [github.com/Chunyu33](https://github.com/Chunyu33/light-c) | Manual install |
-| Mem Reduct | Lightweight real-time memory monitor that trims working sets once usage crosses a threshold. | [github.com/henrypp](https://github.com/henrypp/memreduct) | `scoop install memreduct` |
+| Mem Reduct | Lightweight real-time memory monitor that trims working sets once usage crosses a threshold. | [github.com/henrypp](https://github.com/henrypp/memreduct) | `choco install memreduct` |
 | SpaceSniffer | Treemap view of disk space usage. | [uderzo.it](http://www.uderzo.it/main_products/space_sniffer/) | `scoop install spacesniffer`  (extras) |
 | Viap | Moves installed applications and their data to another drive through NTFS junctions. | [github.com/Chunyu33](https://github.com/Chunyu33/viap) | Manual install |
 
@@ -249,9 +282,10 @@ Environment variables and configuration each entry needs. Values are the current
 
 | Software | What to configure | Current state |
 |---|---|---|
-| Oracle JDK 26 | `JAVA_HOME`, `PATH` | `java` and `javac` resolve through `C:\Program Files\Common Files\Oracle\Java\javapath`; `JAVA_HOME` points at the JDK in `C:\Program Files\Java\jdk-26`. Scoop's Temurin 21 was uninstalled, which dropped `JAVA_HOME` with it, so the variable had to be set again |
+| Oracle JDK 26 | Manual install location | `C:\Program Files\Java\jdk-26`; its `javapath` entry was removed from the machine `PATH`, so it no longer shadows the default JDK |
+| Temurin 21 (LTS) | `JAVA_HOME`, `PATH` | `JAVA_HOME` (user) and `java`/`javac` on `PATH` both point at `%USERPROFILE%\scoop\apps\temurin21-jdk\current`, so the command line and Gradle agree |
 | Python | `PATH` (Scoop shims and `Scripts`), pip index | 3.14.6 from Scoop; both directories are on the user `PATH`; no pip mirror configured |
-| Rust (rustup) | `PATH` entry for `%USERPROFILE%\.cargo\bin` | Present; rustc 1.94.1; no `CARGO_HOME` or `RUSTUP_HOME` override |
+| Rust (rustup) | `PATH` entry for `%USERPROFILE%\.cargo\bin` | Present; rustc 1.98.1; no `CARGO_HOME` or `RUSTUP_HOME` override |
 | Node.js | `PATH`, npm prefix, `NODE_OPTIONS` | v24.14.0; `C:\Program Files\nodejs` on the machine `PATH`; npm prefix `%APPDATA%\npm`; `NODE_OPTIONS=--max-old-space-size=1536` |
 | pnpm | `PNPM_HOME` and `PATH`, store directory | `PNPM_HOME=%LOCALAPPDATA%\pnpm`, on the user `PATH`; store moved to `E:\node_modules\.pnpm-store\v11` |
 | Git | Identity, credential helper, line endings | `user.name=Zzz210s`; GitHub and Gist credentials come from gh through URL-scoped helpers, the system helper is manager; `core.autocrlf` unset |
@@ -260,11 +294,13 @@ Environment variables and configuration each entry needs. Values are the current
 | Android Studio | Android SDK | SDK at `%LOCALAPPDATA%\Android\Sdk`, `platform-tools` on the machine `PATH`; `ANDROID_HOME` unset |
 | MinGW-Builds (GCC) | `PATH` entry for `C:\MinGW\bin` | Present |
 | Docker Desktop | WSL 2 backend | WSL default version 2 with a `docker-desktop` distribution; `...\Docker\resources\bin` on the machine `PATH` |
-| cmder | `CMDER_ROOT`, `ConEmuDir` | Both set to the Scoop install |
-| Mem Reduct | Elevated scheduled task | `MemReduct-Elevated` runs with the highest privileges; automatic cleanup needs elevation |
+| cmder | `CMDER_ROOT`, `ConEmuDir` | Both point at the Chocolatey install, `C:\tools\Cmder` |
+| Mem Reduct | Elevated scheduled task | Installed through Chocolatey; the `MemReduct-Elevated` task runs it with the highest privileges because automatic cleanup needs elevation. Threshold is 93% |
 | LightC, Viap | Administrator rights | Cleaning and junction-based migration need an elevated session |
 | Throne | Administrator rights, routing mode | Scheduled task `Throne AutoRun`; TUN mode needs elevation |
 | AnyTXT Searcher | Index service | `ATService` is disabled and has to be started manually |
+| cargo-binstall | DNS used by its resolver | It reads the DNS servers of the default interface instead of the OS resolver. The WLAN adapter is set to `172.19.0.2` (Throne's TUN DNS, which answers here) with `223.5.5.5` as fallback |
+| User `PATH` | Dead entries | 15 entries pointing at removed software were deleted (three cmder leftovers from the Scoop era, an old Bandizip path, Ollama, nine rotated Claude plugin cache paths); 41 -> 26 entries |
 | VS Code, Zed, Xshell | `PATH` (optional) | VS Code `E:\0-Microsoft VS Code\bin` and Zed `%LOCALAPPDATA%\Programs\Zed\bin` on the user `PATH`; Xshell on the machine `PATH` |
 
 ## License
