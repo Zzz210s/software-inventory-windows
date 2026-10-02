@@ -132,7 +132,7 @@ Get-Content "$env:USERPROFILE\Documents\UniGetUI\*.ubundle" | ConvertFrom-Json |
 | cmder | Portable console emulator bundling ConEmu and Clink. | [cmder.net](https://cmder.net/) | `choco install cmder` |
 | Dark (WiX) | Decompiler from the WiX toolset for Windows installer packages. | [wixtoolset.org](https://wixtoolset.org/) | `scoop install dark` |
 | fd | Fast, user-friendly alternative to find. | [github.com/sharkdp](https://github.com/sharkdp/fd) | `scoop install fd` |
-| Git | Distributed version control system. | [git-scm.com](https://git-scm.com/) | `winget install Git.Git` |
+| Git | Distributed version control system. Managed by Scoop: the WinGet package could not be updated because its installer refuses to run while git-bash processes are active (pi's shell is one of them). | [git-scm.com](https://git-scm.com/) | `scoop install git` |
 | GitHub CLI | Official command-line client for GitHub. | [cli.github.com](https://cli.github.com/) | `scoop install gh` |
 | Helix | Modal text editor with built-in language server support. | [helix-editor.com](https://helix-editor.com/) | `scoop install helix` |
 | jq | Command-line JSON processor. | [jqlang.github.io](https://jqlang.github.io/jq/) | `scoop install jq` |
@@ -288,7 +288,7 @@ Environment variables and configuration each entry needs. Values are the current
 | Rust (rustup) | `PATH` entry for `%USERPROFILE%\.cargo\bin` | Present; rustc 1.98.1; no `CARGO_HOME` or `RUSTUP_HOME` override |
 | Node.js | `PATH`, npm prefix, `NODE_OPTIONS` | v24.14.0; `C:\Program Files\nodejs` on the machine `PATH`; npm prefix `%APPDATA%\npm`; `NODE_OPTIONS=--max-old-space-size=1536` |
 | pnpm | `PNPM_HOME` and `PATH`, store directory | `PNPM_HOME=%LOCALAPPDATA%\pnpm`, on the user `PATH`; store moved to `E:\node_modules\.pnpm-store\v11` |
-| Git | Identity, credential helper, line endings | `user.name=Zzz210s`; GitHub and Gist credentials come from gh through URL-scoped helpers, the system helper is manager; `core.autocrlf` unset |
+| Git | Identity, credential helper, line endings, PATH order | `user.name=Zzz210s`; GitHub and Gist credentials come from gh through URL-scoped helpers, the system helper is manager; `core.autocrlf` unset. Scoop's Git (`2.56.0`) is the active one: the user `PATH` lists `%USERPROFILE%\scoop\shims` ahead of the leftover `C:\Program Files\Git\...` entries, and the machine `PATH` no longer references the WinGet install |
 | Scoop | Install root, buckets | Default root `%USERPROFILE%\scoop`; buckets `main`, `extras` and `java` |
 | IntelliJ IDEA, WebStorm | VM options for the launcher | `IDEA_VM_OPTIONS` and the other JetBrains variables point at `E:\0-IntelliJ IDEA 2025.1.2\win2021-2025\vmoptions\*.vmoptions`, set for user and machine |
 | Android Studio | Android SDK | SDK at `%LOCALAPPDATA%\Android\Sdk`, `platform-tools` on the machine `PATH`; `ANDROID_HOME` unset |

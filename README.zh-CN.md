@@ -132,7 +132,7 @@ Get-Content "$env:USERPROFILE\Documents\UniGetUI\*.ubundle" | ConvertFrom-Json |
 | cmder | 内置 ConEmu 与 Clink 的便携控制台模拟器。 | [cmder.net](https://cmder.net/) | `choco install cmder` |
 | Dark(WiX) | WiX 工具集中的 Windows 安装包反编译器。 | [wixtoolset.org](https://wixtoolset.org/) | `scoop install dark` |
 | fd | 快速且更易用的 find 替代品。 | [github.com/sharkdp](https://github.com/sharkdp/fd) | `scoop install fd` |
-| Git | 分布式版本控制系统。 | [git-scm.com](https://git-scm.com/) | `winget install Git.Git` |
+| Git | 分布式版本控制系统。改由 Scoop 管理:WinGet 那份无法更新 —— 它的安装器只要检测到 git-bash 进程在运行就拒绝继续(pi 的 shell 就是其中之一)。 | [git-scm.com](https://git-scm.com/) | `scoop install git` |
 | GitHub CLI | GitHub 官方命令行客户端。 | [cli.github.com](https://cli.github.com/) | `scoop install gh` |
 | Helix | 内置语言服务器支持的模态文本编辑器。 | [helix-editor.com](https://helix-editor.com/) | `scoop install helix` |
 | jq | 命令行 JSON 处理工具。 | [jqlang.github.io](https://jqlang.github.io/jq/) | `scoop install jq` |
@@ -288,7 +288,7 @@ Get-Content "$env:USERPROFILE\Documents\UniGetUI\*.ubundle" | ConvertFrom-Json |
 | Rust (rustup) | 把 `%USERPROFILE%\.cargo\bin` 加入 `PATH` | 已加入;rustc 1.98.1;未覆盖 `CARGO_HOME`/`RUSTUP_HOME` |
 | Node.js | `PATH`、npm prefix、`NODE_OPTIONS` | v24.14.0;`C:\Program Files\nodejs` 在机器级 PATH;npm prefix 为 `%APPDATA%\npm`;`NODE_OPTIONS=--max-old-space-size=1536` |
 | pnpm | `PNPM_HOME` 与 `PATH`、store 目录 | `PNPM_HOME=%LOCALAPPDATA%\pnpm`,已在用户 PATH;store 已迁到 `E:\node_modules\.pnpm-store\v11` |
-| Git | 身份、凭据助手、换行 | `user.name=Zzz210s`;GitHub 与 Gist 凭据通过 URL 级 helper 交给 gh,系统级为 manager;未设 `core.autocrlf` |
+| Git | 身份、凭据助手、换行、PATH 顺序 | `user.name=Zzz210s`;GitHub 与 Gist 凭据通过 URL 级 helper 交给 gh,系统级为 manager;未设 `core.autocrlf`。当前生效的是 Scoop 那份(`2.56.0`):用户 `PATH` 里 `%USERPROFILE%\scoop\shims` 排在残留的 `C:\Program Files\Git\...` 之前,机器级 `PATH` 已不再引用 WinGet 的安装 |
 | Scoop | 安装根目录、bucket | 默认根目录 `%USERPROFILE%\scoop`;bucket 为 `main`、`extras`、`java` |
 | IntelliJ IDEA、WebStorm | 启动器的 VM 选项 | `IDEA_VM_OPTIONS` 等 JetBrains 变量指向 `E:\0-IntelliJ IDEA 2025.1.2\win2021-2025\vmoptions\*.vmoptions`,用户级与机器级均已设置 |
 | Android Studio | Android SDK | SDK 在 `%LOCALAPPDATA%\Android\Sdk`,`platform-tools` 在机器 PATH;未设 `ANDROID_HOME` |
